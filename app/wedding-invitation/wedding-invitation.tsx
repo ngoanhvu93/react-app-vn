@@ -114,23 +114,27 @@ export default function WeddingInvitation() {
         </div>
 
         {/* Enhanced Date Card with better animation */}
-        <div className="my-4 flex flex-row items-center justify-center">
-          <div className="relative flex flex-row items-center w-auto rounded-3xl shadow-2xl border-2 border-red-200 bg-white overflow-hidden px-4 py-2">
-            {/* Ngày lớn */}
-            <div className="flex flex-col items-center justify-center pr-6 border-r border-red-200">
-              <div className="text-3xl font-bold text-red-600 leading-none drop-shadow-sm font-cormorant bg-gradient-to-b from-red-700 to-pink-700 bg-clip-text">
-                23
+        <div className="flex flex-col items-center justify-center mt-4 w-full px-8">
+          <div className="font-bold text-gray-800 font-dancing-script text-xl tracking-wide">
+            Tháng 8
+          </div>
+          <div className="flex items-center justify-center w-full px-4">
+            <div className="flex justify-center items-center px-4 py-2 w-full">
+              <div className="text-gray-800 w-1/3 font-semibold italic font-dancing-script text-center border-y py-1 text-lg">
+                Thứ 7
               </div>
-              <div className="text-xl text-gray-800 font-semibold italic font-cormorant text-center">
-                Thứ Bảy
+              <div className="flex flex-col items-center justify-center w-1/3">
+                <div className="text-4xl text-red-600 font-bold drop-shadow-sm italic font-dancing-script text-center">
+                  23
+                </div>
+              </div>
+              <div className="text-gray-800 font-semibold italic font-dancing-script text-center border-y py-1 w-1/3 text-lg">
+                11h00
               </div>
             </div>
-            {/* Header: Tháng */}
-            <div className="flex flex-col items-center justify-center pl-6">
-              <div className="bg-gradient-to-r from-red-600 to-pink-600 text-white text-center py-2 px-4 text-lg font-bold tracking-widest font-cormorant rounded-2xl shadow-md">
-                Tháng 8/2025
-              </div>
-            </div>
+          </div>
+          <div className="text-gray-800 font-semibold italic font-dancing-script text-center text-lg">
+            2025
           </div>
         </div>
 
