@@ -243,30 +243,27 @@ export default function WeddingInvitation() {
           </div>
 
           {/* Enhanced Time and Date Display */}
-          <div className="flex flex-col items-center justify-center mb-6 w-full">
-            <div className="text-center text-gray-700 font-serif mb-2">
-              Vào Lúc <span className="font-bold text-black">11h00</span> |{" "}
-              <span className="font-bold text-black">Chủ Nhật</span>
+          <div className="flex flex-col items-center justify-center w-full px-8">
+            <div className="font-bold text-gray-800 font-dancing-script text-xl tracking-wide">
+              Tháng 8
             </div>
-            <div className="flex flex-row items-center justify-center bg-[#f5ede7] rounded-xl px-6 py-2 shadow border border-gray-200 w-full">
-              <div className="flex w-1/3 flex-col items-center pr-6 border-r border-gray-400">
-                <div className="text-base font-bold text-black font-serif tracking-wide">
-                  Tháng 06
+            <div className="flex items-center justify-center w-full px-4">
+              <div className="flex justify-center items-center px-4 py-2 w-full">
+                <div className="text-gray-800 font-semibold italic font-dancing-script text-center border-y py-1 w-1/3 text-lg">
+                  11h00
+                </div>
+                <div className="flex flex-col items-center justify-center w-1/3">
+                  <div className="text-4xl text-red-600 font-bold drop-shadow-sm italic font-dancing-script text-center">
+                    23
+                  </div>
+                </div>
+                <div className="text-gray-800 w-1/3 font-semibold italic font-dancing-script text-center border-y py-1 text-lg">
+                  Thứ 7
                 </div>
               </div>
-              <div className="flex w-1/3 flex-col items-center px-6">
-                <div
-                  className="text-4xl font-cormorant font-bold text-black tracking-wider"
-                  style={{ fontFamily: "'Dancing Script', 'Cormorant', serif" }}
-                >
-                  22
-                </div>
-              </div>
-              <div className="flex w-1/3 flex-col items-center pl-6 border-l border-gray-400">
-                <div className="text-base font-bold text-black font-serif tracking-wide">
-                  2025
-                </div>
-              </div>
+            </div>
+            <div className="text-gray-800 font-semibold italic font-dancing-script text-center text-lg">
+              2025
             </div>
           </div>
         </div>
