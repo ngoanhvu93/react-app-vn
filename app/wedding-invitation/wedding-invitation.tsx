@@ -7,6 +7,7 @@ import {
   XIcon,
   CopyIcon,
   CheckIcon,
+  MapPinIcon,
 } from "lucide-react";
 
 export function meta() {
@@ -178,7 +179,9 @@ export default function WeddingInvitation() {
               <div className="font-semibold text-gray-800">
                 Ông Đặng Văn Đức
               </div>
-              <div className="font-semibold text-gray-800">Bà Huỳnh Mai</div>
+              <div className="font-semibold text-gray-800">
+                Bà Huỳnh Bạch Mai
+              </div>
             </div>
             <div className="text-xs text-gray-700 font-serif italic mt-3">
               🏠 Đồng Tháp, Tỉnh Đồng Tháp
@@ -204,7 +207,7 @@ export default function WeddingInvitation() {
         {/* Invitation Section with enhanced styling */}
         <div className="flex flex-col items-center space-y-8 px-4">
           <div className="text-center space-y-4">
-            <div className="text-4xl font-bold text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text">
+            <div className="text-2xl font-bold text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text">
               Thư Mời
             </div>
             <div className="font-semibold text-red-600 font-serif tracking-wide">
@@ -265,31 +268,49 @@ export default function WeddingInvitation() {
         </div>
 
         {/* Venue Section with enhanced styling */}
-        <div className="text-center space-y-6 w-full max-w-2xl">
-          <div className="text-3xl font-bold text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text">
-            Địa điểm tổ chức
-          </div>
-          <div className="text-2xl font-bold text-gray-700 font-serif tracking-wide">
-            Nhà Hàng Cây Bàng
-          </div>
-          <div className="font-semibold text-gray-700 font-serif tracking-wide mb-8">
-            📍 18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng
-          </div>
-          <div className="flex justify-center mt-4 px-4">
-            <div className="overflow-hidden shadow-2xl">
-              <iframe
-                title="Bản đồ Nhà Hàng Cây Bàng"
-                src="https://www.google.com/maps?q=18+Hồ+Xuân+Hương,+P.Mũi+Né,+Tỉnh+Lâm+Đồng&output=embed"
-                width="450"
-                height="280"
-                style={{
-                  border: 0,
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+        <div className="text-center w-full p-4">
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl space-y-4">
+            <div className="text-2xl font-bold text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text">
+              Địa điểm tổ chức
+            </div>
+            <div className="text-2xl font-bold text-gray-700 font-serif tracking-wide">
+              Nhà Hàng Cây Bàng
+            </div>
+            <div className="font-semibold text-gray-700 font-serif text-sm tracking-wide mb-4">
+              📍 18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng
+            </div>
+            <div className="flex justify-center mt-4">
+              <div className="overflow-hidden shadow-2xl">
+                <iframe
+                  title="Bản đồ Nhà Hàng Cây Bàng"
+                  src="https://www.google.com/maps?q=18+Hồ+Xuân+Hương,+P.Mũi+Né,+Tỉnh+Lâm+Đồng&output=embed"
+                  width="450"
+                  height="280"
+                  style={{
+                    border: 0,
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+                  }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+            {/* Google Maps Button */}
+            <div className="flex justify-center pb-4">
+              <button
+                onClick={() => {
+                  const address = "18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng";
+                  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                    address
+                  )}`;
+                  window.open(googleMapsUrl, "_blank");
                 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+                className="flex items-center gap-2 bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold py-2 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-red-500 hover:border-red-400"
+              >
+                <MapPinIcon className="w-5 h-5" />
+                <span>Xem trên Google Maps</span>
+              </button>
             </div>
           </div>
         </div>
