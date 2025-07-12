@@ -88,12 +88,12 @@ export default function WeddingInvitation() {
         className={`relative z-10 flex flex-col items-center justify-center mx-auto w-full pt-10`}
       >
         <img
-          src="../../public/image.png"
+          src="https://firebasestorage.googleapis.com/v0/b/winner-5c54a.firebasestorage.app/o/avatars%2Fimage.png?alt=media&token=30a5202d-8fdd-4da0-a36f-78013b9d2e04"
           alt="Ảnh cưới chính"
-          className="w-screen h-[700px] absolute top-0 left-0 z-50"
+          className="w-screen h-[700px] absolute top-0 left-0 z-0"
         />
         {/* Hero Image with enhanced styling and animation */}
-        <div className="w-62 h-96 mx-auto overflow-hidden rounded-t-full mt-2 shadow-2xl">
+        <div className="w-62 h-96 mx-auto overflow-hidden rounded-t-full mt-2 shadow-2xl z-10">
           <img
             src="https://deewedding.com/wp-content/uploads/2023/10/372763945_844636273716650_9026782117946223657_n-682x1024.jpg.webp"
             width={500}
@@ -104,7 +104,7 @@ export default function WeddingInvitation() {
         </div>
 
         {/* Main Title with enhanced typography and animation */}
-        <div className="text-center mt-8 space-y-2 animate-fade-in">
+        <div className="text-center mt-8 space-y-2 z-10">
           <div className="text-xl font-bold text-red-600 font-serif tracking-widest drop-shadow-lg bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text">
             THƯ MỜI CƯỚI
           </div>
