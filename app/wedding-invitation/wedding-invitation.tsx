@@ -172,7 +172,7 @@ export default function WeddingInvitation() {
           </div>
 
           {/* Enhanced Time and Date Display */}
-          <div className="flex flex-col items-center space-y-4 my-6 bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-2 border-red-300">
+          <div className="flex flex-col items-center space-y-4 my-6 bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl ">
             <div className="flex items-center gap-3">
               <div className="text-red-700 font-serif font-bold text-lg">
                 Vào lúc
@@ -213,7 +213,7 @@ export default function WeddingInvitation() {
             18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng
           </div>
           <div className="flex justify-center mt-4">
-            <div className="rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300 border-4 border-red-300">
+            <div className="rounded-2xl overflow-hidden shadow-2xl  ">
               <iframe
                 title="Bản đồ Nhà Hàng Cây Bàng"
                 src="https://www.google.com/maps?q=18+Hồ+Xuân+Hương,+P.Mũi+Né,+Tỉnh+Lâm+Đồng&output=embed"
