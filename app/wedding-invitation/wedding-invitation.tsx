@@ -11,6 +11,16 @@ import {
 } from "lucide-react";
 
 export function meta() {
+  const [ogImage, setOgImage] = useState(
+    "https://firebasestorage.googleapis.com/v0/b/winner-5c54a.firebasestorage.app/o/avatars%2Fimage.png?alt=media&token=30a5202d-8fdd-4da0-a36f-78013b9d2e04"
+  );
+
+  useEffect(() => {
+    setOgImage(
+      "https://firebasestorage.googleapis.com/v0/b/winner-5c54a.firebasestorage.app/o/avatars%2Fimage.png?alt=media&token=30a5202d-8fdd-4da0-a36f-78013b9d2e04"
+    );
+  }, []);
+
   return [
     { title: "Thiệp mời cưới - Anh Vũ & Kim Triệu" },
     {
@@ -19,8 +29,7 @@ export function meta() {
     },
     {
       name: "og:image",
-      content:
-        "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-2.jpg",
+      content: ogImage,
     },
   ];
 }
