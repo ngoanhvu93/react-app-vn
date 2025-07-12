@@ -87,7 +87,7 @@ export default function WeddingInvitation() {
         className={`relative z-10 flex flex-col items-center justify-center mx-auto w-full max-w-4xl px-4 py-8`}
       >
         {/* Hero Image with enhanced styling and animation */}
-        <div className="w-80 h-96 mx-auto overflow-hidden rounded-3xl mt-4 shadow-2xl transition-all duration-700 hover:scale-105 hover:shadow-3xl transform hover:rotate-1">
+        <div className="w-80 h-96 mx-auto overflow-hidden rounded-3xl mt-4 shadow-2xl">
           <img
             src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-4.jpg"
             width={500}
@@ -109,7 +109,7 @@ export default function WeddingInvitation() {
 
         {/* Enhanced Date Card with better animation */}
         <div className="my-8 flex flex-col items-center">
-          <div className="relative w-48 rounded-3xl shadow-2xl border-2 border-red-200 bg-white overflow-hidden transform hover:scale-110 transition-all duration-500 hover:shadow-3xl">
+          <div className="relative w-48 rounded-3xl shadow-2xl border-2 border-red-200 bg-white overflow-hidden">
             {/* Header: Tháng */}
             <div className="bg-gradient-to-r from-red-600 to-pink-600 text-white text-center py-3 text-lg font-extrabold tracking-widest font-cormorant">
               Tháng 8/2025
@@ -152,7 +152,7 @@ export default function WeddingInvitation() {
             </div>
           </div>
           <div className="relative flex flex-col items-center mt-6">
-            <div className="w-80 h-80 rounded-t-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-3xl transform hover:scale-105">
+            <div className="w-80 h-80 rounded-t-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-3xl">
               <img
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 src="https://cdn-i.doisongphapluat.com.vn/media/nguyen-thi-quynh/2022/04/08/nha-hang-hinh-anh-full-hd-dam-cuoi-hyun-bin-son-ye-jin-anh-mat-chu-re-ngong-cho-co-dau-qua-doi-ngot-ngao-1.png"
@@ -185,7 +185,7 @@ export default function WeddingInvitation() {
             </div>
           </div>
           <div className="relative flex flex-col items-center mt-6">
-            <div className="w-80 h-80 rounded-t-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-3xl transform hover:scale-105">
+            <div className="w-80 h-80 rounded-t-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-3xl">
               <img
                 src="https://2hstudio.vn/wp-content/uploads/2024/12/36.jpg"
                 alt="Cô dâu Kim Triệu"
