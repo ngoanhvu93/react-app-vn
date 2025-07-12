@@ -11,7 +11,7 @@ export function meta() {
     {
       name: "og:image",
       content:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMasHYe5Ymq5Dd534mJcvRWsORBJVLJ9UnWA&s",
+        "https://images.theconversation.com/files/442675/original/file-20220126-17-1i0g402.jpg?ixlib=rb-4.1.0&q=45&auto=format&w=1356&h=668&fit=crop",
     },
   ];
 }
