@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 
 export function meta() {
+  const [title, setTitle] = useState("Thiệp mời cưới - Anh Vũ & Kim Triệu");
   const [ogImage, setOgImage] = useState(
     "https://firebasestorage.googleapis.com/v0/b/winner-5c54a.firebasestorage.app/o/avatars%2Fimage.png?alt=media&token=30a5202d-8fdd-4da0-a36f-78013b9d2e04"
   );
@@ -19,10 +20,11 @@ export function meta() {
     setOgImage(
       "https://firebasestorage.googleapis.com/v0/b/winner-5c54a.firebasestorage.app/o/avatars%2Fimage.png?alt=media&token=30a5202d-8fdd-4da0-a36f-78013b9d2e04"
     );
+    setTitle("Thiệp mời cưới - Anh Vũ & Kim Triệu");
   }, []);
 
   return [
-    { title: "Thiệp mời cưới - Anh Vũ & Kim Triệu" },
+    { title: title },
     {
       name: "description",
       content: "Thiệp mời cưới của Anh Vũ & Kim Triệu - Thứ Bảy, 23/08/2025",
