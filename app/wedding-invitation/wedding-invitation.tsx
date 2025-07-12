@@ -220,7 +220,7 @@ export default function WeddingInvitation() {
           </div>
 
           {/* Enhanced Photo Gallery */}
-          <div className="flex justify-center items-center gap-8 my-10">
+          <div className="flex justify-center items-center gap-8">
             <img
               src="https://2hstudio.vn/wp-content/uploads/2024/12/36.jpg"
               alt="Ảnh cưới 1"
@@ -271,7 +271,7 @@ export default function WeddingInvitation() {
         {/* Venue Section with enhanced styling */}
         <div className="text-center w-full p-4">
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl space-y-4">
-            <div className="text-2xl font-bold text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text">
+            <div className="text-2xl font-bold text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text pt-4">
               Địa điểm tổ chức
             </div>
             <div className="text-2xl font-bold text-gray-700 font-serif tracking-wide">
