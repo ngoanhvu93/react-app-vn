@@ -449,16 +449,6 @@ export default function WeddingInvitation() {
                 </div>
               </div>
             </div>
-
-            {/* Enhanced Dialog Footer */}
-            <div className="bg-gradient-to-r from-gray-100 to-gray-200 p-8 rounded-b-3xl">
-              <button
-                onClick={closeDialog}
-                className="w-full bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold py-4 px-8 rounded-2xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-lg"
-              >
-                ✨ Đóng ✨
-              </button>
-            </div>
           </Dialog.Panel>
         </div>
       </Dialog>
