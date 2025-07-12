@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { Dialog } from "@headlessui/react";
+
 export function meta() {
   return [
     { title: "Thiệp mời cưới - Anh Vũ & Kim Triệu" },
@@ -14,6 +17,11 @@ export function meta() {
 }
 
 export default function WeddingInvitation() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const openDialog = () => setIsDialogOpen(true);
+  const closeDialog = () => setIsDialogOpen(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-rose-100 relative overflow-hidden">
       {/* Background decorative elements */}
@@ -226,7 +234,180 @@ export default function WeddingInvitation() {
 
         {/* Final decorative divider */}
         <div className="h-[2px] w-48 bg-gradient-to-r from-transparent via-red-500 to-transparent my-8" />
+
+        {/* Gửi Mừng Cưới Button */}
+        <button
+          onClick={openDialog}
+          className="text-center text-red-500 font-serif tracking-wide bg-white/80 backdrop-blur-sm rounded-full px-8 py-3 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-red-200 hover:border-red-300"
+        >
+          Gửi Mừng Cưới
+        </button>
       </div>
+
+      {/* Dialog for QR Code and Bank Information using @headlessui/react */}
+      <Dialog
+        open={isDialogOpen}
+        onClose={closeDialog}
+        className="relative z-50"
+      >
+        {/* The backdrop, rendered as a fixed sibling to the panel container */}
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+          aria-hidden="true"
+        />
+
+        {/* Full-screen container to center the panel */}
+        <div className="fixed inset-0 flex items-center justify-center p-4">
+          <Dialog.Panel className="bg-white rounded-3xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            {/* Dialog Header */}
+            <div className="bg-gradient-to-r from-red-500 to-pink-500 text-white p-6 rounded-t-3xl">
+              <div className="flex justify-between items-center">
+                <Dialog.Title className="text-2xl font-bold font-serif">
+                  Gửi Mừng Cưới
+                </Dialog.Title>
+                <button
+                  onClick={closeDialog}
+                  className="text-white hover:text-red-100 transition-colors duration-200"
+                  aria-label="Đóng dialog"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Dialog Content */}
+            <div className="p-6 space-y-6">
+              {/* QR Code Section */}
+              <div className="text-center space-y-4">
+                <h3 className="text-xl font-bold text-red-600 font-serif">
+                  Mã QR Chuyển Khoản
+                </h3>
+                <div className="bg-gray-50 rounded-2xl p-6 border-2 border-red-200">
+                  <div className="w-48 h-48 mx-auto bg-white rounded-xl p-4 shadow-lg">
+                    {/* Placeholder for QR Code - Replace with actual QR code image */}
+                    <div className="w-full h-full bg-gradient-to-br from-red-100 to-pink-100 rounded-lg flex items-center justify-center">
+                      <div className="text-center text-red-600 font-serif">
+                        <div className="text-4xl mb-2">📱</div>
+                        <div className="text-sm">QR Code</div>
+                        <div className="text-xs text-gray-500">
+                          (Thay bằng ảnh QR thật)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bank Information */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold text-red-600 font-serif text-center">
+                  Thông Tin Ngân Hàng
+                </h3>
+
+                {/* Bank Account 1 */}
+                <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl p-4 border-2 border-red-200">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                        <span className="text-white text-sm font-bold">1</span>
+                      </div>
+                      <h4 className="font-bold text-red-600">
+                        Tài khoản Chú Rễ
+                      </h4>
+                    </div>
+                    <div className="space-y-1 text-sm">
+                      <div className="flex justify-between">
+                        <span className="font-semibold text-gray-700">
+                          Ngân hàng:
+                        </span>
+                        <span className="text-red-600 font-bold">
+                          Vietcombank
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-semibold text-gray-700">
+                          Tên TK:
+                        </span>
+                        <span className="text-red-600 font-bold">
+                          NGÔ ANH VŨ
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-semibold text-gray-700">
+                          Số TK:
+                        </span>
+                        <span className="text-red-600 font-bold font-mono">
+                          1234567890
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bank Account 2 */}
+                <div className="bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl p-4 border-2 border-pink-200">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
+                        <span className="text-white text-sm font-bold">2</span>
+                      </div>
+                      <h4 className="font-bold text-pink-600">
+                        Tài khoản Cô Dâu
+                      </h4>
+                    </div>
+                    <div className="space-y-1 text-sm">
+                      <div className="flex justify-between">
+                        <span className="font-semibold text-gray-700">
+                          Ngân hàng:
+                        </span>
+                        <span className="text-pink-600 font-bold">BIDV</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-semibold text-gray-700">
+                          Tên TK:
+                        </span>
+                        <span className="text-pink-600 font-bold">
+                          ĐẶNG KIM TRIỆU
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-semibold text-gray-700">
+                          Số TK:
+                        </span>
+                        <span className="text-pink-600 font-bold font-mono">
+                          0987654321
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Dialog Footer */}
+            <div className="bg-gray-50 p-6 rounded-b-3xl">
+              <button
+                onClick={closeDialog}
+                className="w-full bg-gradient-to-r from-red-500 to-pink-500 text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+              >
+                Đóng
+              </button>
+            </div>
+          </Dialog.Panel>
+        </div>
+      </Dialog>
     </div>
   );
 }
