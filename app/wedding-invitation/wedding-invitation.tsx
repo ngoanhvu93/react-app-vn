@@ -17,7 +17,7 @@ export function loader(params: { slug: string }) {
   // Ví dụ động: mỗi cặp cưới có 1 ảnh riêng
   const data = {
     title: `Thiệp cưới của ${slug}`,
-    image: `ttps://deewedding.com/wp-content/uploads/2023/10/372763945_844636273716650_9026782117946223657_n-682x1024.jpg.webp`,
+    image: `https://deewedding.com/wp-content/uploads/2023/10/372763945_844636273716650_9026782117946223657_n-682x1024.jpg.webp`,
   };
 
   return data;
