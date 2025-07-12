@@ -1,5 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
+import {
+  BanknoteIcon,
+  HeartIcon,
+  QrCodeIcon,
+  XIcon,
+  CopyIcon,
+  CheckIcon,
+} from "lucide-react";
 
 export function meta() {
   return [
@@ -18,157 +26,218 @@ export function meta() {
 
 export default function WeddingInvitation() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [copiedAccount, setCopiedAccount] = useState<string | null>(null);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   const openDialog = () => setIsDialogOpen(true);
   const closeDialog = () => setIsDialogOpen(false);
 
+  const copyToClipboard = async (text: string, accountType: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedAccount(accountType);
+
+      // Reset copied state after 2 seconds
+      setTimeout(() => {
+        setCopiedAccount(null);
+      }, 2000);
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
+  };
+
+  const AccountNumberDisplay = ({
+    accountNumber,
+    accountType,
+    label,
+  }: {
+    accountNumber: string;
+    accountType: string;
+    label: string;
+  }) => {
+    const isGroomAccount = accountType === "groom-account";
+    const textColor = isGroomAccount ? "text-red-700" : "text-pink-700";
+    const hoverBgColor = isGroomAccount
+      ? "hover:bg-red-50"
+      : "hover:bg-pink-50";
+
+    return (
+      <div className="flex justify-between items-center">
+        <span className="font-semibold text-gray-800">{label}:</span>
+        <button
+          onClick={() => copyToClipboard(accountNumber, accountType)}
+          className={`flex items-center gap-2 ${textColor} font-bold font-mono ${hoverBgColor} px-2 py-1 rounded-lg transition-all duration-200 group`}
+          title="Nhấn để copy"
+        >
+          <span className="group-hover:scale-105 transition-transform duration-200">
+            {accountNumber}
+          </span>
+          {copiedAccount === accountType ? (
+            <CheckIcon className="w-4 h-4 text-green-600 animate-pulse" />
+          ) : (
+            <CopyIcon className="w-4 h-4 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-200" />
+          )}
+        </button>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-pink-50 to-rose-100 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-red-300 to-pink-300 rounded-full opacity-40 blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-pink-300 to-red-300 rounded-full opacity-40 blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-red-200 to-pink-200 rounded-full opacity-30 blur-3xl"></div>
-      </div>
-
-      <div className="relative z-10 flex flex-col items-center justify-center mx-auto w-full max-w-4xl px-4 py-8">
-        {/* Hero Image with enhanced styling */}
-        <div className="w-80 h-96 mx-auto overflow-hidden rounded-3xl mt-4 shadow-2xl  transition-transform duration-500">
+      <div
+        className={`relative z-10 flex flex-col items-center justify-center mx-auto w-full max-w-4xl px-4 py-8`}
+      >
+        {/* Hero Image with enhanced styling and animation */}
+        <div className="w-80 h-96 mx-auto overflow-hidden rounded-3xl mt-4 shadow-2xl transition-all duration-700 hover:scale-105 hover:shadow-3xl transform hover:rotate-1">
           <img
             src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-4.jpg"
             width={500}
             height={500}
             alt="Ảnh cưới chính"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
           />
         </div>
 
-        {/* Main Title with enhanced typography */}
-        <div className="text-center mt-8 space-y-2">
-          <div className="text-3xl font-bold text-red-700 font-serif tracking-widest drop-shadow-lg">
+        {/* Main Title with enhanced typography and animation */}
+        <div className="text-center mt-8 space-y-4 animate-fade-in">
+          <div className="text-3xl font-bold text-red-700 font-serif tracking-widest drop-shadow-lg bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text text-transparent">
             THƯ MỜI CƯỚI
           </div>
-          <div className="text-2xl font-bold text-red-600 font-serif italic bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
+          <div className="text-2xl font-bold text-red-600 font-serif italic bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent ">
             Anh Vũ & Kim Triệu
           </div>
         </div>
 
-        {/* Enhanced Date Card */}
-        <div className="my-6 flex flex-col items-center">
-          <div className="relative w-44 rounded-2xl shadow-2xl border bg-white overflow-hidden transform hover:scale-105 transition-transform duration-300">
+        {/* Enhanced Date Card with better animation */}
+        <div className="my-8 flex flex-col items-center">
+          <div className="relative w-48 rounded-3xl shadow-2xl border-2 border-red-200 bg-white overflow-hidden transform hover:scale-110 transition-all duration-500 hover:shadow-3xl">
             {/* Header: Tháng */}
-            <div className="bg-gradient-to-r from-red-600 to-pink-600 text-white text-center py-2 text-lg font-extrabold tracking-widest font-cormorant">
+            <div className="bg-gradient-to-r from-red-600 to-pink-600 text-white text-center py-3 text-lg font-extrabold tracking-widest font-cormorant">
               Tháng 6/2025
             </div>
             {/* Ngày lớn */}
-            <div className="flex flex-col items-center justify-center py-4">
-              <div className="text-[72px] font-extrabold text-red-700 leading-none drop-shadow-sm font-cormorant bg-gradient-to-b from-red-700 to-pink-700 bg-clip-text text-transparent">
+            <div className="flex flex-col items-center justify-center py-2">
+              <div className="text-[80px] font-extrabold text-red-700 leading-none drop-shadow-sm font-cormorant bg-gradient-to-b from-red-700 to-pink-700 bg-clip-text text-transparent">
                 22
               </div>
-              <div className="text-lg text-gray-800 font-semibold italic font-cormorant">
+              <div className="text-xl text-gray-800 font-semibold italic font-cormorant">
                 Chủ Nhật
               </div>
             </div>
             {/* Footer: Thời gian */}
-            <div className="bg-gradient-to-r from-yellow-200 to-orange-200 text-yellow-900 text-center py-2 text-sm font-medium border-t-2 border-yellow-400 font-cormorant">
+            <div className="bg-gradient-to-r from-yellow-200 to-orange-200 text-yellow-900 text-center py-3 text-sm font-medium border-t-2 border-yellow-400 font-cormorant">
               18 giờ 00 phút
             </div>
           </div>
         </div>
 
-        {/* Decorative divider */}
-        <div className="h-[3px] w-48 bg-gradient-to-r from-transparent via-red-600 to-transparent my-6" />
+        {/* Enhanced decorative divider */}
+        <div className="h-[4px] w-56 bg-gradient-to-r from-transparent via-red-600 to-transparent my-8 rounded-full shadow-lg" />
 
-        {/* Groom's Family Section */}
-        <div className="text-center space-y-4 w-full max-w-md">
+        {/* Groom's Family Section with enhanced styling */}
+        <div className="text-center space-y-6 w-full max-w-md">
           <div className="text-xl font-bold text-red-700 font-serif tracking-wide">
-            <div className="flex flex-col text-base items-center space-y-1">
-              <div className="text-lg font-bold">Nhà Trai</div>
-              <div className="font-semibold">Ông Ngô Văn Tuấn</div>
-              <div className="font-semibold">Bà Nguyễn Thị Bích Phượng</div>
+            <div className="flex flex-col text-base items-center space-y-2">
+              <div className="text-xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
+                Nhà Trai
+              </div>
+              <div className="font-semibold text-gray-800">
+                Ông Ngô Văn Tuấn
+              </div>
+              <div className="font-semibold text-gray-800">
+                Bà Nguyễn Thị Bích Phượng
+              </div>
             </div>
-            <div className="text-xs text-gray-700 font-serif italic mt-2">
-              18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng
+            <div className="text-xs text-gray-700 font-serif italic mt-3">
+              🏠 18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng
             </div>
           </div>
-          <div className="relative flex flex-col items-center mt-4">
-            <div className="w-80 h-80 rounded-t-2xl overflow-hidden shadow-xl ">
+          <div className="relative flex flex-col items-center mt-6">
+            <div className="w-80 h-80 rounded-t-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-3xl transform hover:scale-105">
               <img
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 src="https://cdn-i.doisongphapluat.com.vn/media/nguyen-thi-quynh/2022/04/08/nha-hang-hinh-anh-full-hd-dam-cuoi-hyun-bin-son-ye-jin-anh-mat-chu-re-ngong-cho-co-dau-qua-doi-ngot-ngao-1.png"
                 alt="Chú rễ Anh Vũ"
               />
             </div>
-            <div className="w-80 text-white text-center font-serif font-bold text-lg drop-shadow-lg bg-gray-500/50 px-2 py-1 rounded-b-2xl">
-              Chú rễ Anh Vũ
+            <div className="w-80 text-white text-center font-serif font-bold text-lg drop-shadow-lg bg-gradient-to-r from-gray-600 to-gray-700 px-4 py-3 rounded-b-3xl">
+              👨‍💼 Chú rễ Anh Vũ
             </div>
           </div>
         </div>
 
-        {/* Decorative divider */}
-        <div className="h-[3px] w-48 bg-gradient-to-r from-transparent via-red-600 to-transparent my-6" />
+        {/* Enhanced decorative divider */}
+        <div className="h-[4px] w-56 bg-gradient-to-r from-transparent via-red-600 to-transparent my-8 rounded-full shadow-lg" />
 
-        {/* Bride's Family Section */}
-        <div className="text-center space-y-4 w-full max-w-md">
+        {/* Bride's Family Section with enhanced styling */}
+        <div className="text-center space-y-6 w-full max-w-md">
           <div className="text-xl font-bold text-red-700 font-serif tracking-wide">
-            <div className="flex flex-col text-base items-center space-y-1">
-              <div className="text-lg font-bold">Nhà Gái</div>
-              <div className="font-semibold">Ông Đặng Văn Đức</div>
-              <div className="font-semibold">Bà Huỳnh Mai</div>
+            <div className="flex flex-col text-base items-center space-y-2">
+              <div className="text-xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
+                Nhà Gái
+              </div>
+              <div className="font-semibold text-gray-800">
+                Ông Đặng Văn Đức
+              </div>
+              <div className="font-semibold text-gray-800">Bà Huỳnh Mai</div>
             </div>
-            <div className="text-xs text-gray-700 font-serif italic mt-2">
-              Đồng Tháp, Tỉnh Đồng Tháp
+            <div className="text-xs text-gray-700 font-serif italic mt-3">
+              🏠 Đồng Tháp, Tỉnh Đồng Tháp
             </div>
           </div>
-          <div className="relative flex flex-col items-center mt-4">
-            <div className="w-80 h-80 rounded-t-2xl overflow-hidden shadow-xl  ">
+          <div className="relative flex flex-col items-center mt-6">
+            <div className="w-80 h-80 rounded-t-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-3xl transform hover:scale-105">
               <img
                 src="https://2hstudio.vn/wp-content/uploads/2024/12/36.jpg"
                 alt="Cô dâu Kim Triệu"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
               />
             </div>
-            <div className="w-80 text-white font-serif text-center font-cormorant font-bold text-lg drop-shadow-lg bg-gray-500/50 px-2 py-1 rounded-b-2xl">
-              Cô dâu Kim Triệu
+            <div className="w-80 text-white font-serif text-center font-cormorant font-bold text-lg drop-shadow-lg bg-gradient-to-r from-gray-600 to-gray-700 px-4 py-3 rounded-b-3xl">
+              👰‍♀️ Cô dâu Kim Triệu
             </div>
           </div>
         </div>
 
-        {/* Decorative divider */}
-        <div className="h-[3px] w-48 bg-gradient-to-r from-transparent via-red-600 to-transparent my-6" />
+        {/* Enhanced decorative divider */}
+        <div className="h-[4px] w-56 bg-gradient-to-r from-transparent via-red-600 to-transparent my-8 rounded-full shadow-lg" />
 
-        {/* Invitation Section */}
-        <div className="flex flex-col items-center space-y-6">
-          <div className="text-center space-y-2">
-            <div className="text-3xl font-bold text-red-700 font-serif tracking-wide">
+        {/* Invitation Section with enhanced styling */}
+        <div className="flex flex-col items-center space-y-8">
+          <div className="text-center space-y-4">
+            <div className="text-4xl font-bold text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text text-transparent">
               Thư Mời
             </div>
-            <div className="text-base font-semibold text-red-600 font-serif tracking-wide">
+            <div className="font-semibold text-red-600 font-serif tracking-wide">
               Tham dự lễ cưới Anh Vũ & Kim Triệu
             </div>
           </div>
 
-          {/* Photo Gallery */}
-          <div className="flex justify-center items-center gap-6 my-8">
+          {/* Enhanced Photo Gallery */}
+          <div className="flex justify-center items-center gap-8 my-10">
             <img
               src="https://2hstudio.vn/wp-content/uploads/2024/12/36.jpg"
               alt="Ảnh cưới 1"
-              className="w-40 h-28 object-cover rounded-xl shadow-lg rotate-[-8deg] "
+              className="w-44 h-32 object-cover rounded-2xl shadow-xl rotate-[-8deg] transition-all duration-500 hover:scale-110 hover:rotate-0 hover:shadow-2xl"
             />
             <img
               src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-4.jpg"
               alt="Ảnh cưới 2"
-              className="w-44 h-32 object-cover rounded-xl shadow-xl rotate-[6deg] z-10  "
+              className="w-48 h-36 object-cover rounded-2xl shadow-2xl rotate-[6deg] z-10 transition-all duration-500 hover:scale-110 hover:rotate-0 hover:shadow-3xl"
             />
             <img
               src="https://cdn-i.doisongphapluat.com.vn/media/nguyen-thi-quynh/2022/04/08/nha-hang-hinh-anh-full-hd-dam-cuoi-hyun-bin-son-ye-jin-anh-mat-chu-re-ngong-cho-co-dau-qua-doi-ngot-ngao-1.png"
               alt="Ảnh cưới 3"
-              className="w-40 h-28 object-cover rounded-xl shadow-lg rotate-[10deg] "
+              className="w-44 h-32 object-cover rounded-2xl shadow-xl rotate-[10deg] transition-all duration-500 hover:scale-110 hover:rotate-0 hover:shadow-2xl"
             />
           </div>
 
-          <div className="text-lg font-bold text-center text-red-700 font-serif tracking-wide">
-            TIỆC MỪNG LỄ TÂN HÔN
+          <div className="text-xl font-bold text-center text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text text-transparent">
+            🎉 TIỆC MỪNG LỄ TÂN HÔN 🎉
           </div>
 
           {/* Enhanced Time and Date Display */}
@@ -201,28 +270,28 @@ export default function WeddingInvitation() {
           </div>
         </div>
 
-        {/* Venue Section */}
-        <div className="text-center space-y-4 w-full max-w-2xl">
-          <div className="text-2xl font-bold text-red-700 font-serif tracking-wide">
+        {/* Venue Section with enhanced styling */}
+        <div className="text-center space-y-6 w-full max-w-2xl">
+          <div className="text-3xl font-bold text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text text-transparent">
             Địa điểm tổ chức
           </div>
-          <div className="text-lg font-bold text-red-700 font-serif tracking-wide">
+          <div className="text-2xl font-bold text-red-700 font-serif tracking-wide">
             Nhà Hàng Cây Bàng
           </div>
-          <div className="text-base font-semibold text-red-600 font-serif tracking-wide mb-6">
-            18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng
+          <div className="text-lg font-semibold text-red-600 font-serif tracking-wide mb-8">
+            📍 18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng
           </div>
-          <div className="flex justify-center mt-4">
-            <div className="rounded-2xl overflow-hidden shadow-2xl  ">
+          <div className="flex justify-center mt-6">
+            <div className="rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-3xl transform hover:scale-105">
               <iframe
                 title="Bản đồ Nhà Hàng Cây Bàng"
                 src="https://www.google.com/maps?q=18+Hồ+Xuân+Hương,+P.Mũi+Né,+Tỉnh+Lâm+Đồng&output=embed"
-                width="400"
-                height="250"
+                width="450"
+                height="280"
                 style={{
                   border: 0,
-                  borderRadius: "16px",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+                  borderRadius: "24px",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
                 }}
                 allowFullScreen
                 loading="lazy"
@@ -232,19 +301,19 @@ export default function WeddingInvitation() {
           </div>
         </div>
 
-        {/* Final decorative divider */}
-        <div className="h-[3px] w-48 bg-gradient-to-r from-transparent via-red-600 to-transparent my-8" />
+        {/* Final enhanced decorative divider */}
+        <div className="h-[4px] w-56 bg-gradient-to-r from-transparent via-red-600 to-transparent my-10 rounded-full shadow-lg" />
 
-        {/* Gửi Mừng Cưới Button */}
+        {/* Enhanced Gửi Mừng Cưới Button */}
         <button
           onClick={openDialog}
-          className="text-center text-red-600 font-serif tracking-wide bg-white/90 backdrop-blur-sm rounded-full px-8 py-3 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-3 border-red-400 hover:border-red-500"
+          className="text-center text-red-600 font-serif tracking-wide bg-white/95 backdrop-blur-md rounded-full p-4 shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-500 border-4 border-red-400 hover:border-red-500 text-lg font-bold"
         >
-          Gửi Mừng Cưới
+          💝 Gửi Mừng Cưới 💝
         </button>
       </div>
 
-      {/* Dialog for QR Code and Bank Information using @headlessui/react */}
+      {/* Enhanced Dialog for QR Code and Bank Information */}
       <Dialog
         open={isDialogOpen}
         onClose={closeDialog}
@@ -252,56 +321,46 @@ export default function WeddingInvitation() {
       >
         {/* The backdrop, rendered as a fixed sibling to the panel container */}
         <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 bg-black/70 backdrop-blur-md"
           aria-hidden="true"
         />
 
         {/* Full-screen container to center the panel */}
-        <div className="fixed inset-0 flex items-center justify-center p-4">
-          <Dialog.Panel className="bg-white rounded-3xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto ">
-            {/* Dialog Header */}
-            <div className="sticky top-0 bg-gradient-to-r from-red-600 to-pink-600 text-white p-6 rounded-t-3xl">
+        <div className="fixed inset-0 flex items-center justify-center p-2">
+          <Dialog.Panel className="bg-white rounded-3xl shadow-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto transform transition-all duration-500 scale-100">
+            {/* Enhanced Dialog Header */}
+            <div className="sticky top-0 bg-gradient-to-r from-red-600 to-pink-600 text-white p-4 rounded-t-3xl">
               <div className="flex justify-between items-center">
-                <Dialog.Title className="text-2xl font-bold font-serif">
-                  Gửi Mừng Cưới
+                <Dialog.Title className="text-2xl font-bold font-serif flex items-center justify-center">
+                  <HeartIcon className="w-6 h-6" />
+                  <span className="ml-2">Gửi Mừng Cưới</span>
                 </Dialog.Title>
                 <button
                   onClick={closeDialog}
-                  className="text-white hover:text-red-100 transition-colors duration-200"
+                  className="text-white hover:text-red-100 transition-colors duration-200 p-2 rounded-full hover:bg-white/20"
                   aria-label="Đóng dialog"
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  <XIcon className="w-6 h-6" />
                 </button>
               </div>
             </div>
 
-            {/* Dialog Content */}
-            <div className="p-6 space-y-6">
-              {/* QR Code Section */}
+            {/* Enhanced Dialog Content */}
+            <div className="p-8 space-y-6">
+              {/* Enhanced QR Code Section */}
               <div className="text-center space-y-4">
-                <h3 className="text-xl font-bold text-red-700 font-serif">
-                  Mã QR Chuyển Khoản
+                <h3 className="text-xl font-bold text-red-700 font-serif flex items-center justify-center">
+                  <QrCodeIcon className="w-6 h-6" />
+                  <span className="ml-2">Mã QR Chuyển Khoản</span>
                 </h3>
-                <div className="bg-gray-100 rounded-2xl p-6 border-3 border-red-300">
-                  <div className="w-48 h-48 mx-auto bg-white rounded-xl p-4 shadow-lg border-2 border-red-200">
+                <div className="bg-gradient-to-r from-gray-100 to-gray-200 rounded-3xl p-4 border-4 border-red-300 shadow-xl">
+                  <div className="w-56 h-56 mx-auto bg-white rounded-2xl p-6 shadow-2xl border-4 border-red-200 transition-all duration-500 hover:shadow-3xl transform hover:scale-105">
                     {/* Placeholder for QR Code - Replace with actual QR code image */}
-                    <div className="w-full h-full bg-gradient-to-br from-red-100 to-pink-100 rounded-lg flex items-center justify-center">
+                    <div className="w-full h-full bg-gradient-to-br from-red-100 to-pink-100 rounded-xl flex items-center justify-center">
                       <div className="text-center text-red-700 font-serif">
-                        <div className="text-4xl mb-2">📱</div>
-                        <div className="text-sm">QR Code</div>
-                        <div className="text-xs text-gray-600">
+                        <div className="text-6xl mb-4">📱</div>
+                        <div className="text-lg font-bold">QR Code</div>
+                        <div className="text-sm text-gray-600 mt-2">
                           (Thay bằng ảnh QR thật)
                         </div>
                       </div>
@@ -310,10 +369,11 @@ export default function WeddingInvitation() {
                 </div>
               </div>
 
-              {/* Bank Information */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold text-red-700 font-serif text-center">
-                  Thông Tin Ngân Hàng
+              {/* Enhanced Bank Information */}
+              <div className="space-y-6">
+                <h3 className="text-xl font-bold text-red-700 font-serif text-center flex items-center justify-center">
+                  <BanknoteIcon className="w-6 h-6" />
+                  <span className="ml-2">Thông Tin Ngân Hàng</span>
                 </h3>
 
                 {/* Bank Account 1 */}
@@ -344,14 +404,11 @@ export default function WeddingInvitation() {
                           NGÔ ANH VŨ
                         </span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="font-semibold text-gray-800">
-                          Số TK:
-                        </span>
-                        <span className="text-red-700 font-bold font-mono">
-                          1234567890
-                        </span>
-                      </div>
+                      <AccountNumberDisplay
+                        accountNumber="1234567890"
+                        accountType="groom-account"
+                        label="Số TK"
+                      />
                     </div>
                   </div>
                 </div>
@@ -382,27 +439,24 @@ export default function WeddingInvitation() {
                           ĐẶNG KIM TRIỆU
                         </span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="font-semibold text-gray-800">
-                          Số TK:
-                        </span>
-                        <span className="text-pink-700 font-bold font-mono">
-                          0987654321
-                        </span>
-                      </div>
+                      <AccountNumberDisplay
+                        accountNumber="0987654321"
+                        accountType="bride-account"
+                        label="Số TK"
+                      />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Dialog Footer */}
-            <div className="bg-gray-100 p-6 rounded-b-3xl">
+            {/* Enhanced Dialog Footer */}
+            <div className="bg-gradient-to-r from-gray-100 to-gray-200 p-8 rounded-b-3xl">
               <button
                 onClick={closeDialog}
-                className="w-full bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                className="w-full bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold py-4 px-8 rounded-2xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-lg"
               >
-                Đóng
+                ✨ Đóng ✨
               </button>
             </div>
           </Dialog.Panel>
