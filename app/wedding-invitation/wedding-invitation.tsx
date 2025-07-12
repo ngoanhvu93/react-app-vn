@@ -238,13 +238,13 @@ export default function WeddingInvitation() {
           {/* Enhanced Time and Date Display */}
           <div className="flex flex-col items-center space-y-4 my-6 bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl ">
             <div className="flex items-center gap-3">
-              <div className="text-red-700 font-serif font-bold text-lg">
+              <div className="text-gray-700 font-serif font-bold text-lg">
                 Vào lúc
               </div>
               <span className="inline-block bg-gradient-to-r from-red-600 to-pink-600 text-white rounded-full px-4 py-2 text-lg font-bold font-serif shadow-lg">
                 18:00
               </span>
-              <span className="text-red-700 font-serif font-bold text-lg">
+              <span className="text-gray-700 font-serif font-bold text-lg">
                 Thứ Bảy
               </span>
             </div>
@@ -252,15 +252,15 @@ export default function WeddingInvitation() {
               <span className="inline-block bg-white border-3 border-red-600 text-red-600 rounded-xl px-6 py-2 text-xl font-bold font-serif shadow-lg">
                 23
               </span>
-              <span className="text-red-700 font-serif font-bold text-lg">
+              <span className="text-gray-700 font-serif font-bold text-lg">
                 tháng 8
               </span>
-              <span className="text-red-700 font-serif font-bold text-lg">
+              <span className="text-gray-700 font-serif font-bold text-lg">
                 năm 2025
               </span>
             </div>
-            <span className="text-red-700 font-serif font-bold text-base text-center">
-              (Tức ngày 22 tháng 6 năm 2025 Âm Lịch)
+            <span className="text-gray-700 font-serif font-bold text-sm text-center">
+              (Tức ngày 01 tháng 07 năm 2025 Âm Lịch)
             </span>
           </div>
         </div>
@@ -270,10 +270,10 @@ export default function WeddingInvitation() {
           <div className="text-3xl font-bold text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text text-transparent">
             Địa điểm tổ chức
           </div>
-          <div className="text-2xl font-bold text-red-700 font-serif tracking-wide">
+          <div className="text-2xl font-bold text-gray-700 font-serif tracking-wide">
             Nhà Hàng Cây Bàng
           </div>
-          <div className="text-lg font-semibold text-red-600 font-serif tracking-wide mb-8">
+          <div className="text-lg font-semibold text-gray-700 font-serif tracking-wide mb-8">
             📍 18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng
           </div>
           <div className="flex justify-center mt-6">
