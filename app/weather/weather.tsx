@@ -42,9 +42,30 @@ export default function Weather() {
   const [city, setCity] = useState("Ho Chi Minh");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Sử dụng OpenMeteo API - miễn phí và không cần API key
   const API_URL = "https://api.open-meteo.com/v1/forecast";
+
+  // Xử lý cuộn trang
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      setShowScrollTop(scrollTop > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Hàm cuộn lên đầu
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const fetchWeather = async (cityName: string) => {
     setLoading(true);
@@ -287,6 +308,29 @@ export default function Weather() {
           </p>
         </div>
       </div>
+
+      {/* Nút cuộn lên đầu */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-lg rounded-full flex items-center justify-center text-white text-xl transition-all duration-300 hover:scale-110 shadow-lg border border-white/20 z-50"
+          aria-label="Cuộn lên đầu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m18 15-6-6-6 6" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }
