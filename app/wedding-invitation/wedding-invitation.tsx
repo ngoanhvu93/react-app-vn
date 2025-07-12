@@ -272,7 +272,7 @@ export default function WeddingInvitation() {
           <div className="text-2xl font-bold text-gray-700 font-serif tracking-wide">
             Nhà Hàng Cây Bàng
           </div>
-          <div className="text-lg font-semibold text-gray-700 font-serif tracking-wide mb-8">
+          <div className="font-semibold text-gray-700 font-serif tracking-wide mb-8">
             📍 18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng
           </div>
           <div className="flex justify-center mt-4 px-4">
