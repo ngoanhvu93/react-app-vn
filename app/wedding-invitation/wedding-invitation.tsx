@@ -258,7 +258,7 @@ export default function WeddingInvitation() {
 
         {/* Full-screen container to center the panel */}
         <div className="fixed inset-0 flex items-center justify-center p-4">
-          <Dialog.Panel className="bg-white rounded-3xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto border-4 border-red-300">
+          <Dialog.Panel className="bg-white rounded-3xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto ">
             {/* Dialog Header */}
             <div className="sticky top-0 bg-gradient-to-r from-red-600 to-pink-600 text-white p-6 rounded-t-3xl">
               <div className="flex justify-between items-center">
