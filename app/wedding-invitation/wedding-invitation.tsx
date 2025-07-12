@@ -10,26 +10,29 @@ import {
   MapPinIcon,
 } from "lucide-react";
 
-export function meta() {
-  const [title, setTitle] = useState("");
-  const [ogImage, setOgImage] = useState("");
+export function loader(params: { slug: string }) {
+  const slug = params.slug;
+  console.log(slug, "slug");
 
-  useEffect(() => {
-    setOgImage(
-      "https://deewedding.com/wp-content/uploads/2023/10/372763945_844636273716650_9026782117946223657_n-682x1024.jpg.webp"
-    );
-    setTitle("Thiệp mời cưới - Anh Vũ & Kim Triệu");
-  }, []);
+  // Ví dụ động: mỗi cặp cưới có 1 ảnh riêng
+  const data = {
+    title: `Thiệp cưới của ${slug}`,
+    image: `ttps://deewedding.com/wp-content/uploads/2023/10/372763945_844636273716650_9026782117946223657_n-682x1024.jpg.webp`,
+  };
 
+  return data;
+}
+
+export function meta({ data }: { data: { title: string; image: string } }) {
   return [
-    { title: title },
+    { title: data.title },
     {
       name: "description",
       content: "Thiệp mời cưới của Anh Vũ & Kim Triệu - Thứ Bảy, 23/08/2025",
     },
     {
       name: "og:image",
-      content: ogImage,
+      content: data.image,
     },
   ];
 }
