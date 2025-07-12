@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { ArrowUp } from "lucide-react";
 
 export function meta() {
   return [
@@ -316,19 +317,7 @@ export default function Weather() {
           className="fixed bottom-6 right-6 w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-lg rounded-full flex items-center justify-center text-white text-xl transition-all duration-300 hover:scale-110 shadow-lg border border-white/20 z-50"
           aria-label="Cuộn lên đầu"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="m18 15-6-6-6 6" />
-          </svg>
+          <ArrowUp size={24} />
         </button>
       )}
     </div>
