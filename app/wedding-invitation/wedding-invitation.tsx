@@ -14,7 +14,7 @@ export function meta() {
     { title: "Thiệp mời cưới - Anh Vũ & Kim Triệu" },
     {
       name: "description",
-      content: "Thiệp mời cưới của Anh Vũ & Kim Triệu - Chủ Nhật, 22/06/2025",
+      content: "Thiệp mời cưới của Anh Vũ & Kim Triệu - Thứ Bảy, 23/08/2025",
     },
     {
       name: "og:image",
@@ -26,12 +26,7 @@ export function meta() {
 
 export default function WeddingInvitation() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
   const [copiedAccount, setCopiedAccount] = useState<string | null>(null);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
 
   const openDialog = () => setIsDialogOpen(true);
   const closeDialog = () => setIsDialogOpen(false);
@@ -117,15 +112,15 @@ export default function WeddingInvitation() {
           <div className="relative w-48 rounded-3xl shadow-2xl border-2 border-red-200 bg-white overflow-hidden transform hover:scale-110 transition-all duration-500 hover:shadow-3xl">
             {/* Header: Tháng */}
             <div className="bg-gradient-to-r from-red-600 to-pink-600 text-white text-center py-3 text-lg font-extrabold tracking-widest font-cormorant">
-              Tháng 6/2025
+              Tháng 8/2025
             </div>
             {/* Ngày lớn */}
             <div className="flex flex-col items-center justify-center py-2">
               <div className="text-[80px] font-extrabold text-red-700 leading-none drop-shadow-sm font-cormorant bg-gradient-to-b from-red-700 to-pink-700 bg-clip-text text-transparent">
-                22
+                23
               </div>
               <div className="text-xl text-gray-800 font-semibold italic font-cormorant">
-                Chủ Nhật
+                Thứ Bảy
               </div>
             </div>
             {/* Footer: Thời gian */}
@@ -250,15 +245,15 @@ export default function WeddingInvitation() {
                 18:00
               </span>
               <span className="text-red-700 font-serif font-bold text-lg">
-                Chủ Nhật
+                Thứ Bảy
               </span>
             </div>
             <div className="flex items-center gap-3">
               <span className="inline-block bg-white border-3 border-red-600 text-red-600 rounded-xl px-6 py-2 text-xl font-bold font-serif shadow-lg">
-                22
+                23
               </span>
               <span className="text-red-700 font-serif font-bold text-lg">
-                tháng 6
+                tháng 8
               </span>
               <span className="text-red-700 font-serif font-bold text-lg">
                 năm 2025
