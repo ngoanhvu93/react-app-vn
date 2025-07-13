@@ -23,17 +23,9 @@ import {
   Calendar,
 } from "lucide-react";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "~/components/ui/dialog";
-import {
   getBackgroundOverlayForTimeOfDay,
   getTimeOfDay,
   getWeatherClasses,
-  getWeatherTextColor,
-  getWeatherTextSecondaryColor,
 } from "~/utils/apple-weather-icons";
 import {
   cloudFloatAnimation,
@@ -54,6 +46,7 @@ import {
   type LocationData,
   type WeatherData,
 } from "~/utils/weather-service";
+import { Dialog } from "@headlessui/react";
 
 // Weather Effect Components
 const SunnyEffect: React.FC = () => {
@@ -548,8 +541,6 @@ const AppleWeather: React.FC = () => {
 
   // Weather animation classes
   const weatherClasses = getWeatherClasses(weather.icon);
-  const textColor = getWeatherTextColor(weather.icon);
-  const textSecondaryColor = getWeatherTextSecondaryColor(weather.icon);
   const timeOverlay = getBackgroundOverlayForTimeOfDay(timeOfDay, weather.icon);
 
   return (
@@ -566,83 +557,60 @@ const AppleWeather: React.FC = () => {
         <WeatherEffect weatherIcon={weather.icon} />
       </div>
 
-      {/* Search Dialog */}
-      <Dialog open={showSearch} onOpenChange={setShowSearch}>
-        <DialogContent className="bg-black/95 backdrop-blur-md border-white/20 text-white max-w-md w-full max-h-[80vh] overflow-hidden flex flex-col">
-          <DialogHeader className="flex-shrink-0">
-            <DialogTitle className="text-lg font-semibold text-white flex items-center gap-2">
-              <Search className="w-5 h-5" />
-              Tìm kiếm vị trí
-            </DialogTitle>
-          </DialogHeader>
-          {/* Search Input */}
-
-          <div className="mb-4 sticky top-0 bg-black/95 backdrop-blur-md">
-            <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-white/60" />
-            <input
-              ref={searchInputRef}
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Nhập tên thành phố..."
-              className="w-full bg-white/10 border border-white/20 rounded-full pl-10 pr-4 py-2.5 text-white outline-none focus:bg-white/20 focus:border-white/40 transition-colors"
-            />
-            {searchQuery && (
+      {/* Search Modal */}
+      <Dialog open={showSearch} onClose={() => setShowSearch(false)}>
+        {showSearch && (
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md p-4 flex flex-col "
+          >
+            <div className="flex items-center gap-3 mb-6">
               <button
-                title="Clear search"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white"
-                onClick={() => setSearchQuery("")}
+                title="Close"
+                className="p-2 bg-white/10 rounded-full text-white"
+                onClick={() => setShowSearch(false)}
               >
-                <XCircle className="w-5 h-5" />
+                <ArrowLeft className="w-5 h-5" />
               </button>
-            )}
-          </div>
-
-          <div className="flex-1 overflow-y-auto">
-            {/* Search Results */}
-            {searchLoading ? (
-              <div className="flex justify-center py-8">
-                <Loader2 className="w-8 h-8 text-white/70 animate-spin" />
-              </div>
-            ) : searchResults.length > 0 ? (
-              <div className="space-y-2">
-                {searchResults.map((location, index) => (
-                  <motion.button
-                    key={`search-${location.name}-${index}`}
-                    className="w-full bg-white/10 hover:bg-white/20 p-3 rounded-xl text-left text-white transition-colors flex items-center"
-                    onClick={() => handleLocationSelect(location)}
-                    title="Select location"
+              <div className="relative flex-1">
+                <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-white/60" />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Tìm kiếm thành phố"
+                  className="w-full bg-white/10 border-none rounded-full pl-10 pr-4 py-2.5 text-white outline-none focus:bg-white/20 transition-colors"
+                />
+                {searchQuery && (
+                  <button
+                    title="Clear search"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60"
+                    onClick={() => setSearchQuery("")}
                   >
-                    <MapPin className="w-5 h-5 mr-3 flex-shrink-0" />
-                    <div>
-                      <div className="font-medium">{location.name}</div>
-                      {location.admin1 && (
-                        <div className="text-sm text-white/70">
-                          {location.admin1}
-                        </div>
-                      )}
-                    </div>
-                  </motion.button>
-                ))}
+                    <XCircle className="w-5 h-5" />
+                  </button>
+                )}
               </div>
-            ) : searchQuery ? (
-              <div className="text-center py-8 text-white/70">
-                {searchQuery.length < 2
-                  ? "Nhập ít nhất 2 ký tự để tìm kiếm"
-                  : "Không tìm thấy địa điểm"}
-              </div>
-            ) : recentLocations.length > 0 ? (
-              <div>
-                <div className="text-sm font-medium text-white/80 mb-2 px-1">
-                  Lịch sử tìm kiếm
+            </div>
+
+            {/* Search Results */}
+            <div className="flex-1 overflow-y-auto">
+              {searchLoading ? (
+                <div className="flex justify-center py-8">
+                  <Loader2 className="w-8 h-8 text-white/70 animate-spin" />
                 </div>
+              ) : searchResults.length > 0 ? (
                 <div className="space-y-2">
-                  {recentLocations.map((location, index) => (
+                  {searchResults.map((location, index) => (
                     <motion.button
-                      key={`recent-${location.name}-${index}`}
+                      title="Select location"
+                      key={`search-${location.name}-${index}`}
                       className="w-full bg-white/10 hover:bg-white/20 p-3 rounded-xl text-left text-white transition-colors flex items-center"
                       onClick={() => handleLocationSelect(location)}
-                      title="Select location"
+                      whileHover={{ x: 2 }}
                     >
                       <MapPin className="w-5 h-5 mr-3 flex-shrink-0" />
                       <div>
@@ -656,27 +624,60 @@ const AppleWeather: React.FC = () => {
                     </motion.button>
                   ))}
                 </div>
-
-                <div className="text-sm font-medium text-white/80 mt-6 mb-2 px-1">
-                  Vị trí hiện tại
+              ) : searchQuery ? (
+                <div className="text-center py-8 text-white/70">
+                  {searchQuery.length < 2
+                    ? "Enter at least 2 characters to search"
+                    : "No locations found"}
                 </div>
-                <motion.button
-                  className="w-full bg-white/10 hover:bg-white/20 p-3 rounded-xl text-left text-white transition-colors flex items-center"
-                  onClick={resetToCurrentLocation}
-                >
-                  <LocateFixed className="w-5 h-5 mr-3 flex-shrink-0 text-blue-400" />
-                  <div>
-                    <div className="font-medium">Vị trí hiện tại</div>
+              ) : recentLocations.length > 0 ? (
+                <div>
+                  <div className="text-sm font-medium text-white/80 mb-2 px-1">
+                    Lịch sử tìm kiếm gần nhất
                   </div>
-                </motion.button>
-              </div>
-            ) : (
-              <div className="text-center py-8 text-white/70">
-                Tìm kiếm thành phố để xem thông tin thời tiết
-              </div>
-            )}
-          </div>
-        </DialogContent>
+                  <div className="space-y-2">
+                    {recentLocations.map((location, index) => (
+                      <motion.button
+                        key={`recent-${location.name}-${index}`}
+                        className="w-full bg-white/10 hover:bg-white/20 p-3 rounded-xl text-left text-white transition-colors flex items-center"
+                        onClick={() => handleLocationSelect(location)}
+                        whileHover={{ x: 2 }}
+                      >
+                        <MapPin className="w-5 h-5 mr-3 flex-shrink-0" />
+                        <div>
+                          <div className="font-medium">{location.name}</div>
+                          {location.admin1 && (
+                            <div className="text-sm text-white/70">
+                              {location.admin1}
+                            </div>
+                          )}
+                        </div>
+                      </motion.button>
+                    ))}
+                  </div>
+
+                  <div className="text-sm font-medium text-white/80 mt-6 mb-2 px-1">
+                    Vị trí hiện tại
+                  </div>
+                  <motion.button
+                    className="w-full bg-white/10 hover:bg-white/20 p-3 rounded-xl text-left text-white transition-colors flex items-center"
+                    onClick={resetToCurrentLocation}
+                    whileHover={{ x: 2 }}
+                  >
+                    <LocateFixed className="w-5 h-5 mr-3 flex-shrink-0 text-blue-400" />
+                    <div>
+                      <div className="font-medium">My Current Location</div>
+                    </div>
+                  </motion.button>
+                </div>
+              ) : (
+                <div className="text-center py-8 text-white/70">
+                  Tìm kiếm thành phố để xem thông tin thời tiết
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
       </Dialog>
 
       <div className="relative z-20 container mx-auto max-w-lg px-4 py-8">
