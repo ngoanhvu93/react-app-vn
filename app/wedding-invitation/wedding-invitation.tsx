@@ -233,7 +233,6 @@ export default function WeddingInvitation() {
               slidesPerView={3}
               spaceBetween={10}
               freeMode
-              loop
               pagination={{ clickable: true, dynamicBullets: true }}
               autoplay={{ delay: 2000, disableOnInteraction: false }}
             >
