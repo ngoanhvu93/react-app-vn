@@ -21,6 +21,7 @@ import {
   Loader2,
   LocateFixed,
   Calendar,
+  ChevronLeft,
 } from "lucide-react";
 import {
   getBackgroundOverlayForTimeOfDay,
@@ -47,6 +48,7 @@ import {
   type WeatherData,
 } from "~/utils/weather-service";
 import { Dialog } from "@headlessui/react";
+import { useNavigate, useRoutes } from "react-router";
 
 // Weather Effect Components
 const SunnyEffect: React.FC = () => {
@@ -363,6 +365,7 @@ const WeatherDetailsCard: React.FC<{
 
 // Main Weather Component
 const AppleWeather: React.FC = () => {
+  const navigate = useNavigate();
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -567,7 +570,7 @@ const AppleWeather: React.FC = () => {
                 className="size-10 bg-white/10 rounded-full text-white flex items-center justify-center"
                 onClick={() => setShowSearch(false)}
               >
-                <ArrowLeft className="w-5 h-5" />
+                <ChevronLeft className="w-5 h-5" />
               </button>
               <div className="relative flex-1">
                 <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-white/60" />
@@ -677,12 +680,19 @@ const AppleWeather: React.FC = () => {
       <div className="flex sticky top-0 p-4 z-50 justify-between items-center">
         <button
           title="Search"
-          className="p-2.5 bg-white/15 rounded-full backdrop-blur-md"
-          onClick={() => setShowSearch(true)}
+          className="size-10 bg-white/15 rounded-full backdrop-blur-md flex items-center justify-center"
+          onClick={() => navigate(-1)}
         >
-          <List className="w-5 h-5" />
+          <ChevronLeft className="w-5 h-5" />
         </button>
         <div className="flex gap-2">
+          <button
+            title="Search"
+            className="size-10 bg-white/15 rounded-full backdrop-blur-md flex items-center justify-center"
+            onClick={() => setShowSearch(true)}
+          >
+            <Search className="w-5 h-5" />
+          </button>
           <button
             title="Reset to current location"
             className="p-2.5 bg-white/15 rounded-full backdrop-blur-md"
