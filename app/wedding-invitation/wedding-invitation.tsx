@@ -119,7 +119,7 @@ export default function WeddingInvitation() {
         <img
           src={imageBackground}
           alt="Background"
-          className="w-md h-[700px] absolute top-0 left-0 z-0 z-50"
+          className="w-md h-[700px] absolute top-0 left-0 z-50"
         />
 
         {/* Hero Image with enhanced styling and animation */}
