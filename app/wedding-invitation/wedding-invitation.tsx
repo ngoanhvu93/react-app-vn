@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import {
   BanknoteIcon,
@@ -9,6 +9,13 @@ import {
   CheckIcon,
   MapPinIcon,
 } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 
 export function meta() {
   return [
@@ -220,22 +227,107 @@ export default function WeddingInvitation() {
           </div>
 
           {/* Enhanced Photo Gallery */}
-          <div className="flex justify-center items-center gap-8">
-            <img
-              src="https://2hstudio.vn/wp-content/uploads/2024/12/36.jpg"
-              alt="Ảnh cưới 1"
-              className="w-44 h-32 object-cover rounded-2xl shadow-xl rotate-[-8deg]"
-            />
-            <img
-              src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-4.jpg"
-              alt="Ảnh cưới 2"
-              className="w-48 h-36 object-cover rounded-2xl shadow-2xl rotate-[6deg] z-10"
-            />
-            <img
-              src="https://cdn-i.doisongphapluat.com.vn/media/nguyen-thi-quynh/2022/04/08/nha-hang-hinh-anh-full-hd-dam-cuoi-hyun-bin-son-ye-jin-anh-mat-chu-re-ngong-cho-co-dau-qua-doi-ngot-ngao-1.png"
-              alt="Ảnh cưới 3"
-              className="w-44 h-32 object-cover rounded-2xl shadow-xl rotate-[10deg]"
-            />
+          <div className="w-md px-4 cursor-grab">
+            <Swiper
+              modules={[FreeMode, Pagination, Navigation, Autoplay]}
+              slidesPerView={3}
+              spaceBetween={10}
+              freeMode={true}
+              loop={true}
+              pagination={{
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              autoplay={{
+                delay: 1000,
+                disableOnInteraction: false,
+              }}
+            >
+              <SwiperSlide className="flex items-center justify-center">
+                <img
+                  src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-1.jpg"
+                  alt="Ảnh 1"
+                  className="w-full h-48 bg-gradient-to-br from-red-100 to-pink-100 rounded-xl flex items-center justify-center text-red-700 font-bold text-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
+                <img
+                  src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-2.jpg"
+                  alt="Ảnh 2"
+                  className="w-full h-48 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center text-pink-700 font-bold text-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
+                <img
+                  src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-3.jpg"
+                  alt="Ảnh 3"
+                  className="w-full h-48 bg-gradient-to-br from-rose-100 to-red-100 rounded-xl flex items-center justify-center text-rose-700 font-bold text-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
+                <img
+                  src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-4.jpg"
+                  alt="Ảnh 4"
+                  className="w-full h-48 bg-gradient-to-br from-red-100 to-pink-100 rounded-xl flex items-center justify-center text-red-700 font-bold text-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
+                <img
+                  src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-5.jpg"
+                  alt="Ảnh 5"
+                  className="w-full h-48 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center text-pink-700 font-bold text-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
+                <img
+                  src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-6.jpg"
+                  alt="Ảnh 6"
+                  className="w-full h-48 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center text-pink-700 font-bold text-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
+                <img
+                  src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-7.jpg"
+                  alt="Ảnh 7"
+                  className="w-full h-48 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center text-pink-700 font-bold text-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
+                <img
+                  src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-8.jpg"
+                  alt="Ảnh 8"
+                  className="w-full h-48 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center text-pink-700 font-bold text-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
+                <img
+                  src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-9.jpg"
+                  alt="Ảnh 9"
+                  className="w-full h-48 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center text-pink-700 font-bold text-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
+                <img
+                  src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-10.jpg"
+                  alt="Ảnh 9"
+                  className="w-full h-48 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center text-pink-700 font-bold text-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
+                <img
+                  src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-11.jpg"
+                  alt="Ảnh 9"
+                  className="w-full h-48 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center text-pink-700 font-bold text-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="flex items-center justify-center">
+                <img
+                  src="https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-12.jpg"
+                  alt="Ảnh 9"
+                  className="w-full h-48 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center text-pink-700 font-bold text-xl"
+                />
+              </SwiperSlide>
+            </Swiper>
           </div>
 
           <div className="text-xl font-bold text-center text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text">
