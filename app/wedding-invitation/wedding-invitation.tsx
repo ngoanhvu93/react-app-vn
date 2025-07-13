@@ -92,7 +92,7 @@ export default function WeddingInvitation() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-red-50 via-pink-50 to-rose-100 overflow-hidden max-w-md mx-auto pb-8">
       <div
-        className={`relative z-10 flex flex-col items-center justify-center mx-auto w-full pt-10`}
+        className={`relative z-10 flex flex-col items-center justify-center mx-auto w-full pt-10 px-4`}
       >
         <img
           src="https://firebasestorage.googleapis.com/v0/b/winner-5c54a.firebasestorage.app/o/avatars%2Fimage.png?alt=media&token=30a5202d-8fdd-4da0-a36f-78013b9d2e04"
@@ -163,7 +163,7 @@ export default function WeddingInvitation() {
               🏠 18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng
             </div>
           </div>
-          <div className="relative flex flex-col items-center mt-6 px-4">
+          <div className="relative flex flex-col items-center mt-6">
             <div className="w-full h-80 rounded-t-3xl overflow-hidden shadow-2xl">
               <img
                 className="w-full h-full object-cover transition-transform duration-700"
@@ -181,7 +181,7 @@ export default function WeddingInvitation() {
         <div className="h-[2px] w-40 bg-gradient-to-r from-transparent via-red-600 to-transparent my-8 rounded-full shadow-lg" />
 
         {/* Bride's Family Section with enhanced styling */}
-        <div className="text-center space-y-6 w-full max-w-md px-4">
+        <div className="text-center space-y-6 w-full max-w-md">
           <div className="text-xl font-bold text-red-700 font-serif tracking-wide">
             <div className="flex flex-col text-base items-center space-y-2">
               <div className="text-xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
@@ -235,7 +235,7 @@ export default function WeddingInvitation() {
               freeMode
               loop
               pagination={{ clickable: true, dynamicBullets: true }}
-              autoplay={{ delay: 1000, disableOnInteraction: false }}
+              autoplay={{ delay: 2000, disableOnInteraction: false }}
             >
               {[
                 {
@@ -356,7 +356,7 @@ export default function WeddingInvitation() {
         </div>
 
         {/* Venue Section with enhanced styling */}
-        <div className="text-center w-full p-4">
+        <div className="text-center w-full">
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl space-y-4">
             <div className="text-2xl font-bold text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text pt-4">
               Địa điểm tổ chức
@@ -407,9 +407,10 @@ export default function WeddingInvitation() {
         <div className="h-[2px] w-40 bg-gradient-to-r from-transparent via-red-600 to-transparent my-10 rounded-full shadow-lg" />
 
         {/* Enhanced Gửi Mừng Cưới Button */}
+
         <button
           onClick={openDialog}
-          className="text-center text-red-600 font-serif tracking-wide bg-white/95 backdrop-blur-md rounded-full p-4 shadow-2xl border-4 border-red-400 hover:border-red-500 text-lg font-bold"
+          className="text-center w-full text-red-600 font-serif tracking-wide bg-white/95 backdrop-blur-md rounded-full p-4 shadow-2xl border border-red-400 hover:border-red-500 text-lg font-bold"
         >
           💝 Gửi Mừng Cưới 💝
         </button>
