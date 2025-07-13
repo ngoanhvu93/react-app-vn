@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Sun,
   Cloud,
@@ -560,7 +560,7 @@ const AppleWeather: React.FC = () => {
       {/* Search Modal */}
       <Dialog open={showSearch} onClose={() => setShowSearch(false)}>
         {showSearch && (
-          <motion.div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md px-4 py-8 flex flex-col ">
+          <motion.div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md p-4 flex flex-col ">
             <div className="flex items-center gap-3 mb-6">
               <button
                 title="Close"
@@ -605,7 +605,6 @@ const AppleWeather: React.FC = () => {
                       key={`search-${location.name}-${index}`}
                       className="w-full bg-white/10 hover:bg-white/20 p-3 rounded-xl text-left text-white transition-colors flex items-center"
                       onClick={() => handleLocationSelect(location)}
-                      whileHover={{ x: 2 }}
                     >
                       <MapPin className="w-5 h-5 mr-3 flex-shrink-0" />
                       <div>
@@ -674,28 +673,27 @@ const AppleWeather: React.FC = () => {
           </motion.div>
         )}
       </Dialog>
+      {/* Header */}
+      <div className="flex sticky top-0 p-4 z-50 justify-between items-center">
+        <button
+          title="Search"
+          className="p-2.5 bg-white/15 rounded-full backdrop-blur-md"
+          onClick={() => setShowSearch(true)}
+        >
+          <List className="w-5 h-5" />
+        </button>
+        <div className="flex gap-2">
+          <button
+            title="Reset to current location"
+            className="p-2.5 bg-white/15 rounded-full backdrop-blur-md"
+            onClick={resetToCurrentLocation}
+          >
+            <LocateFixed className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
 
       <div className="relative z-20 container mx-auto max-w-lg px-4 py-8">
-        {/* Header */}
-        <div className="flex justify-between items-center mb-6">
-          <button
-            title="Search"
-            className="p-2.5 bg-white/15 rounded-full backdrop-blur-md"
-            onClick={() => setShowSearch(true)}
-          >
-            <List className="w-5 h-5" />
-          </button>
-          <div className="flex gap-2">
-            <button
-              title="Reset to current location"
-              className="p-2.5 bg-white/15 rounded-full backdrop-blur-md"
-              onClick={resetToCurrentLocation}
-            >
-              <LocateFixed className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-
         {/* Location and Temperature */}
         <div className="text-center mb-10">
           <h1 className="text-3xl font-semibold mb-1">
