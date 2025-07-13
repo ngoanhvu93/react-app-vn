@@ -560,16 +560,11 @@ const AppleWeather: React.FC = () => {
       {/* Search Modal */}
       <Dialog open={showSearch} onClose={() => setShowSearch(false)}>
         {showSearch && (
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md p-4 flex flex-col "
-          >
+          <motion.div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md px-4 py-8 flex flex-col ">
             <div className="flex items-center gap-3 mb-6">
               <button
                 title="Close"
-                className="p-2 bg-white/10 rounded-full text-white"
+                className="size-10 bg-white/10 rounded-full text-white flex items-center justify-center"
                 onClick={() => setShowSearch(false)}
               >
                 <ArrowLeft className="w-5 h-5" />
