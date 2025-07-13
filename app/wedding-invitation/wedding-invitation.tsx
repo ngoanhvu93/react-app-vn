@@ -16,6 +16,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
+import imageBackground from "../../public/image.png";
 
 export function meta() {
   return [
@@ -116,7 +117,7 @@ export default function WeddingInvitation() {
         className={`relative z-10 flex flex-col items-center justify-center mx-auto w-full pt-10 px-4`}
       >
         <img
-          src={"../../public/image.png"}
+          src={imageBackground}
           alt="Background"
           className="w-md h-[700px] absolute top-0 left-0 z-0 z-50"
         />
