@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
 import {
   BanknoteIcon,
@@ -14,7 +14,8 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
+import Lottie from "react-lottie-player";
+import lottieJson from "./lottiefiles/loading.json";
 import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 
 export function meta() {
@@ -35,6 +36,14 @@ export function meta() {
 export default function WeddingInvitation() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [copiedAccount, setCopiedAccount] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const openDialog = () => setIsDialogOpen(true);
   const closeDialog = () => setIsDialogOpen(false);
@@ -88,6 +97,14 @@ export default function WeddingInvitation() {
       </div>
     );
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gradient-to-br from-red-50 via-pink-50 to-rose-100">
+        <Lottie loop animationData={lottieJson} play />
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-red-50 via-pink-50 to-rose-100 overflow-hidden max-w-md mx-auto pb-8">
