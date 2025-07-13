@@ -216,7 +216,7 @@ export default function WeddingInvitation() {
         <div className="h-[2px] w-40 bg-gradient-to-r from-transparent via-red-600 to-transparent my-8 rounded-full shadow-lg" />
 
         {/* Invitation Section with enhanced styling */}
-        <div className="flex flex-col items-center space-y-8 px-4">
+        <div className="flex flex-col items-center space-y-8">
           <div className="text-center space-y-4">
             <div className="text-2xl font-bold text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text">
               Thư Mời
@@ -313,7 +313,7 @@ export default function WeddingInvitation() {
               ].map((img, i) => (
                 <SwiperSlide
                   key={i}
-                  className="flex items-center justify-center"
+                  className="flex items-center justify-cente"
                 >
                   <img
                     src={img.src}
