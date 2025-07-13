@@ -584,7 +584,7 @@ const AppleWeather: React.FC = () => {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search for a city"
+                  placeholder="Tìm kiếm vị trí"
                   className="w-full bg-white/10 border-none rounded-full pl-10 pr-4 py-2.5 text-white outline-none focus:bg-white/20 transition-colors"
                 />
                 {searchQuery && (
