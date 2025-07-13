@@ -221,7 +221,7 @@ export default function WeddingInvitation() {
             <div className="text-2xl font-bold text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text">
               Thư Mời
             </div>
-            <div className="font-semibold text-red-600 font-serif tracking-wide">
+            <div className="font-semibold text-gray-700 font-serif tracking-wide">
               Tham dự lễ cưới Anh Vũ & Kim Triệu
             </div>
           </div>
