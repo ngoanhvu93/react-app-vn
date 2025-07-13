@@ -318,7 +318,7 @@ export default function WeddingInvitation() {
                   <img
                     src={img.src}
                     alt={img.alt}
-                    className={`w-full h-48 bg-gradient-to-br ${img.bg} rounded-xl flex items-center justify-center ${img.text} font-bold text-xl`}
+                    className={`w-full h-48 bg-gradient-to-br ${img.bg}  flex items-center justify-center ${img.text} font-bold text-xl`}
                   />
                 </SwiperSlide>
               ))}
