@@ -8,14 +8,13 @@ import {
   CopyIcon,
   CheckIcon,
   MapPinIcon,
+  Loader,
 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import Lottie from "react-lottie-player";
-import lottieJson from "./lottiefiles/loading.json";
 import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 
 export function meta() {
@@ -41,7 +40,7 @@ export default function WeddingInvitation() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -101,7 +100,12 @@ export default function WeddingInvitation() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen bg-gradient-to-br from-red-50 via-pink-50 to-rose-100">
-        <Lottie loop animationData={lottieJson} play />
+        <div className="flex flex-col items-center justify-center">
+          <Loader className="w-10 h-10 animate-spin text-red-600" />
+          <div className="text-red-600 font-bold mt-4">
+            Đang tải thiệp mời cưới...
+          </div>
+        </div>
       </div>
     );
   }
@@ -112,10 +116,11 @@ export default function WeddingInvitation() {
         className={`relative z-10 flex flex-col items-center justify-center mx-auto w-full pt-10 px-4`}
       >
         <img
-          src="https://firebasestorage.googleapis.com/v0/b/winner-5c54a.firebasestorage.app/o/avatars%2Fimage.png?alt=media&token=30a5202d-8fdd-4da0-a36f-78013b9d2e04"
-          alt="Ảnh cưới chính"
-          className="w-screen h-[700px] absolute top-0 left-0 z-0"
+          src={"../../public/image.png"}
+          alt="Background"
+          className="w-md h-[700px] absolute top-0 left-0 z-0 z-50"
         />
+
         {/* Hero Image with enhanced styling and animation */}
         <div className="w-62 h-96 mx-auto overflow-hidden rounded-t-full mt-2 shadow-2xl z-10">
           <img
