@@ -8,6 +8,7 @@ import {
   CopyIcon,
   CheckIcon,
   MapPinIcon,
+  CalendarIcon,
 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -39,6 +40,7 @@ export default function WeddingInvitation() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [copiedAccount, setCopiedAccount] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [calendarAdded, setCalendarAdded] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -62,6 +64,55 @@ export default function WeddingInvitation() {
     } catch (err) {
       console.error("Failed to copy: ", err);
     }
+  };
+
+  const addToCalendar = () => {
+    // Create ICS file content
+    const event = {
+      summary: "Đám cưới Anh Vũ & Kim Triệu",
+      description:
+        "Tham dự lễ cưới Anh Vũ & Kim Triệu\n\nĐịa điểm: Nhà Hàng Cây Nhãn\nĐịa chỉ: 77 Huỳnh Tấn Phát, P.Mũi Né, Tỉnh Lâm Đồng\n\nThông tin liên hệ:\n- Chú rễ: Anh Vũ\n- Cô dâu: Kim Triệu",
+      location: "Nhà Hàng Cây Nhãn, 77 Huỳnh Tấn Phát, P.Mũi Né, Tỉnh Lâm Đồng",
+      startDate: "20250823T110000",
+      endDate: "20250823T140000", // 3 hours duration
+    };
+
+    const icsContent = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//Wedding Invitation//VN",
+      "CALSCALE:GREGORIAN",
+      "METHOD:PUBLISH",
+      "BEGIN:VEVENT",
+      `UID:${Date.now()}@wedding-invitation.com`,
+      `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").split(".")[0]}Z`,
+      `DTSTART:${event.startDate}`,
+      `DTEND:${event.endDate}`,
+      `SUMMARY:${event.summary}`,
+      `DESCRIPTION:${event.description.replace(/\n/g, "\\n")}`,
+      `LOCATION:${event.location}`,
+      "STATUS:CONFIRMED",
+      "SEQUENCE:0",
+      "END:VEVENT",
+      "END:VCALENDAR",
+    ].join("\r\n");
+
+    // Create and download the ICS file
+    const blob = new Blob([icsContent], {
+      type: "text/calendar;charset=utf-8",
+    });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "dam-cuoi-anh-vu-kim-trieu.ics";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Show success message
+    setCalendarAdded(true);
+    setTimeout(() => {
+      setCalendarAdded(false);
+    }, 3000);
   };
 
   if (isLoading) {
@@ -371,18 +422,33 @@ export default function WeddingInvitation() {
               </div>
             </div>
             {/* Google Maps Button */}
-            <div className="flex justify-center pb-4">
-              <button
-                onClick={() => {
-                  const address = "77 Huỳnh Tấn Phát, phường Mũi Né";
-                  const googleMapsUrl = `https://maps.app.goo.gl/Gei23kA6hMZsp6jc7`;
-                  window.open(googleMapsUrl, "_blank");
-                }}
-                className="flex items-center gap-2 bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold py-2 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-red-500 hover:border-red-400"
-              >
-                <MapPinIcon className="w-5 h-5" />
-                <span>Xem trên Google Maps</span>
-              </button>
+            <div className="flex gap-2 items-center justify-between pb-4 w-full px-4">
+              <div className="w-full flex justify-center">
+                <button
+                  onClick={() => {
+                    const googleMapsUrl = `https://maps.app.goo.gl/Gei23kA6hMZsp6jc7`;
+                    window.open(googleMapsUrl, "_blank");
+                  }}
+                  className="flex w-full justify-center items-center gap-2 text-gray-600 font-semibold py-2 px-4 rounded-full shadow-lg border"
+                >
+                  <MapPinIcon className="w-5 h-5" />
+                  <span>Google Maps</span>
+                </button>
+              </div>
+              {/* Calendar Button */}
+              <div className="w-full flex justify-center">
+                <button
+                  onClick={addToCalendar}
+                  className="flex items-center justify-center gap-2 text-gray-600 font-semibold py-2 px-4 rounded-full shadow-lg border w-full"
+                >
+                  {calendarAdded ? (
+                    <CheckIcon className="w-5 h-5 animate-pulse" />
+                  ) : (
+                    <CalendarIcon className="w-5 h-5" />
+                  )}
+                  <span>{calendarAdded ? "Đã thêm!" : "Thêm vào lịch"}</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
