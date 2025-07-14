@@ -111,7 +111,7 @@ export default function WeddingInvitation() {
   }
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-red-50 via-pink-50 to-rose-100 overflow-hidden max-w-md mx-auto pb-8">
+    <div className="relative bg-gradient-to-br from-red-50 via-pink-50 to-rose-100 overflow-hidden max-w-md mx-auto pb-8">
       <div
         className={`relative z-10 flex flex-col items-center justify-center mx-auto w-full pt-10 px-4`}
       >
