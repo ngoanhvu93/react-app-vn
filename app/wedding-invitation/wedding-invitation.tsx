@@ -353,12 +353,10 @@ export default function WeddingInvitation() {
               📍 77 Huỳnh Tấn Phát, P.Mũi Né, Tỉnh Lâm Đồng
             </div>
             <div className="flex justify-center mt-4">
-              <div className="overflow-hidden shadow-2xl">
+              <div className="overflow-hidden shadow-2xl w-full h-full">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5681.371598421391!2d108.29080971155933!3d10.939303191364052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31768fc5359bbae9%3A0x37dcbf9e8022cc57!2zTmjDoCBIw6BuZyBDw6J5IE5ow6Nu!5e0!3m2!1svi!2s!4v1752506954730!5m2!1svi!2s"
-                  width="400"
-                  height="300"
-                  style={{ border: "0" }}
+                  style={{ border: "0", width: "100%", height: "100%" }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -370,9 +368,7 @@ export default function WeddingInvitation() {
               <button
                 onClick={() => {
                   const address = "77 Huỳnh Tấn Phát, phường Mũi Né";
-                  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                    address
-                  )}`;
+                  const googleMapsUrl = `https://maps.app.goo.gl/Gei23kA6hMZsp6jc7`;
                   window.open(googleMapsUrl, "_blank");
                 }}
                 className="flex items-center gap-2 bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold py-2 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-red-500 hover:border-red-400"
