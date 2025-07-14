@@ -16,8 +16,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 import imageBackground from "../../public/image.png";
-import { lazy } from "react";
-const Loading = lazy(() => import("./components/Loading"));
+import Loading from "./components/Loading";
 
 export function meta() {
   return [
@@ -406,7 +405,7 @@ export default function WeddingInvitation() {
       <Dialog
         open={isDialogOpen}
         onClose={closeDialog}
-        className="relative z-50 flex items-center justify-center max-h-[80vh] overflow-y-auto"
+        className="relative z-50"
       >
         {/* The backdrop, rendered as a fixed sibling to the panel container */}
         <div
@@ -416,7 +415,7 @@ export default function WeddingInvitation() {
 
         {/* Full-screen container to center the panel */}
         <div className="fixed inset-0 flex items-center justify-center p-2">
-          <Dialog.Panel className="bg-white rounded-3xl shadow-3xl max-w-md w-full">
+          <Dialog.Panel className="bg-white rounded-3xl shadow-3xl max-w-md w-full max-h-[90vh] overflow-y-auto transform transition-all duration-500 scale-100">
             {/* Enhanced Dialog Header */}
             <div className="sticky top-0 bg-gradient-to-r from-red-600 to-pink-600 text-white p-4 rounded-t-3xl">
               <div className="flex justify-between items-center">
@@ -435,7 +434,7 @@ export default function WeddingInvitation() {
             </div>
 
             {/* Enhanced Dialog Content */}
-            <div className="p-8 space-y-6 overflow-y-auto max-h-[80vh]">
+            <div className="p-8 space-y-6">
               {/* Enhanced QR Code Section */}
               <div className="text-center space-y-4">
                 <h3 className="text-xl font-bold text-red-700 font-serif flex items-center justify-center">
