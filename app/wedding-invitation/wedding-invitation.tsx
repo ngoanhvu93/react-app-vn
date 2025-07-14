@@ -347,22 +347,18 @@ export default function WeddingInvitation() {
               Địa điểm tổ chức
             </div>
             <div className="text-2xl font-bold text-gray-700 font-serif tracking-wide">
-              Nhà Hàng Cây Bàng
+              Nhà Hàng Cây Nhãn
             </div>
-            <div className="font-semibold text-gray-700 font-serif text-sm tracking-wide mb-4">
-              📍 18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng
+            <div className="font-semibold text-gray-700  text-sm tracking-wide mb-4">
+              📍 77 Huỳnh Tấn Phát, P.Mũi Né, Tỉnh Lâm Đồng
             </div>
             <div className="flex justify-center mt-4">
               <div className="overflow-hidden shadow-2xl">
                 <iframe
-                  title="Bản đồ Nhà Hàng Cây Bàng"
-                  src="https://www.google.com/maps?q=18+Hồ+Xuân+Hương,+P.Mũi+Né,+Tỉnh+Lâm+Đồng&output=embed"
-                  width="450"
-                  height="280"
-                  style={{
-                    border: 0,
-                    boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
-                  }}
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5681.371598421391!2d108.29080971155933!3d10.939303191364052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31768fc5359bbae9%3A0x37dcbf9e8022cc57!2zTmjDoCBIw6BuZyBDw6J5IE5ow6Nu!5e0!3m2!1svi!2s!4v1752506954730!5m2!1svi!2s"
+                  width="400"
+                  height="300"
+                  style={{ border: "0" }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -373,7 +369,7 @@ export default function WeddingInvitation() {
             <div className="flex justify-center pb-4">
               <button
                 onClick={() => {
-                  const address = "18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng";
+                  const address = "77 Huỳnh Tấn Phát, phường Mũi Né";
                   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
                     address
                   )}`;
@@ -406,6 +402,7 @@ export default function WeddingInvitation() {
         open={isDialogOpen}
         onClose={closeDialog}
         className="relative z-50"
+        as="div"
       >
         {/* The backdrop, rendered as a fixed sibling to the panel container */}
         <div
