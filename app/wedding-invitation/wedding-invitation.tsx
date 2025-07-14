@@ -41,7 +41,7 @@ export default function WeddingInvitation() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 4000);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -102,7 +102,7 @@ export default function WeddingInvitation() {
     return (
       <div className="flex items-center justify-center h-screen bg-gradient-to-br from-red-50 via-pink-50 to-rose-100">
         <DotLottieReact
-          src="https://lottie.host/2e6d9d2d-b1cb-4803-9465-f75b23bf8689/xzLavfrcNA.lottie"
+          src="https://lottie.host/a9035f38-a11a-4ea6-a5b2-6ccab0bf3d71/jLGLmOtYkz.lottie"
           loop
           autoplay
         />
