@@ -8,7 +8,6 @@ import {
   CopyIcon,
   CheckIcon,
   MapPinIcon,
-  Loader,
 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -17,6 +16,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 import imageBackground from "../../public/image.png";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export function meta() {
   return [
@@ -41,7 +41,7 @@ export default function WeddingInvitation() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -101,12 +101,11 @@ export default function WeddingInvitation() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen bg-gradient-to-br from-red-50 via-pink-50 to-rose-100">
-        <div className="flex flex-col items-center justify-center">
-          <Loader className="w-10 h-10 animate-spin text-red-600" />
-          <div className="text-red-600 font-bold mt-4">
-            Đang tải thiệp mời cưới...
-          </div>
-        </div>
+        <DotLottieReact
+          src="https://lottie.host/2e6d9d2d-b1cb-4803-9465-f75b23bf8689/xzLavfrcNA.lottie"
+          loop
+          autoplay
+        />
       </div>
     );
   }
@@ -252,12 +251,13 @@ export default function WeddingInvitation() {
           {/* Enhanced Photo Gallery */}
           <div className="max-w-md cursor-grab">
             <Swiper
+              watchSlidesProgress={true}
               modules={[FreeMode, Pagination, Navigation, Autoplay]}
               slidesPerView={3}
               spaceBetween={10}
               freeMode
               pagination={{ clickable: true, dynamicBullets: true }}
-              autoplay={{ delay: 2000, disableOnInteraction: false }}
+              // autoplay={{ delay: 2000, disableOnInteraction: false }}
             >
               {[
                 {

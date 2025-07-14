@@ -1,0 +1,153 @@
+DANH SÁCH TẤT CẢ TỪ VỰNG (100 TỪ)
+
+=== CHÀO HỎI (GREETINGS) ===
+1. Hello - Xin chào (sin chow) - "Hello, how are you?"
+2. Good morning - Chào buổi sáng (chow boo-ee sang) - "Good morning, everyone!"
+3. Goodbye - Tạm biệt (tam bee-et) - "Goodbye, see you tomorrow!"
+
+=== LỊCH SỰ (POLITENESS) ===
+4. Thank you - Cảm ơn (cam uhn) - "Thank you for your help."
+5. Please - Xin vui lòng (sin voo-ee long) - "Please help me."
+6. Sorry - Xin lỗi (sin loy) - "I'm sorry for being late."
+
+=== TÍNH TỪ (ADJECTIVES) ===
+7. Beautiful - Đẹp (dep) - "What a beautiful day!"
+8. Big - To (toh) - "This is a big house."
+9. Small - Nhỏ (nyoh) - "This is a small car."
+10. Good - Tốt (toht) - "You did a good job."
+11. Bad - Xấu (sow) - "This is bad weather."
+12. Hot - Nóng (nong) - "The weather is hot today."
+13. Cold - Lạnh (lang) - "The water is cold."
+
+=== THỨC ĂN & ĐỒ UỐNG (FOOD & DRINK) ===
+14. Delicious - Ngon (ngon) - "This food is delicious."
+15. Water - Nước (nook) - "I need some water."
+16. Rice - Cơm (kum) - "I love eating rice."
+17. Bread - Bánh mì (bang mee) - "I eat bread for breakfast."
+18. Milk - Sữa (soo-ah) - "I drink milk every day."
+19. Coffee - Cà phê (kah feh) - "I drink coffee in the morning."
+20. Tea - Trà (trah) - "I like drinking tea."
+21. Beer - Bia (bee-ah) - "I drink beer with friends."
+
+=== SỐ ĐẾM (NUMBERS) ===
+22. One - Một (moht) - "I have one apple."
+23. Two - Hai (hai) - "I have two books."
+24. Three - Ba (bah) - "I have three cats."
+25. Ten - Mười (moo-ee) - "I have ten dollars."
+
+=== MÀU SẮC (COLORS) ===
+26. Red - Đỏ (doh) - "The apple is red."
+27. Blue - Xanh dương (sang doo-ung) - "The sky is blue."
+28. Green - Xanh lá (sang lah) - "The grass is green."
+29. Yellow - Vàng (vang) - "The sun is yellow."
+30. White - Trắng (trang) - "The snow is white."
+31. Black - Đen (den) - "The night is black."
+
+=== GIA ĐÌNH (FAMILY) ===
+32. Mother - Mẹ (meh) - "My mother is kind."
+33. Father - Bố (boh) - "My father is tall."
+34. Sister - Chị (chee) - "My sister is beautiful."
+35. Brother - Anh (ang) - "My brother is strong."
+
+=== NHÀ CỬA (HOME) ===
+36. House - Nhà (nyah) - "This is my house."
+37. Room - Phòng (fong) - "This is my room."
+38. Door - Cửa (koo-ah) - "Please close the door."
+39. Window - Cửa sổ (koo-ah soh) - "Open the window."
+40. Table - Bàn (bahn) - "Put it on the table."
+41. Chair - Ghế (geh) - "Sit on the chair."
+
+=== GIÁO DỤC (EDUCATION) ===
+42. Book - Sách (sahk) - "I love reading books."
+43. Pen - Bút (boot) - "I need a pen to write."
+44. School - Trường học (troo-ung hok) - "I go to school every day."
+45. Teacher - Giáo viên (zow vee-en) - "My teacher is very kind."
+46. Student - Học sinh (hok sing) - "I am a student."
+
+=== GIAO THÔNG (TRANSPORTATION) ===
+47. Car - Xe hơi (seh hoi) - "I drive a car."
+48. Bicycle - Xe đạp (seh dahp) - "I ride a bicycle."
+49. Bus - Xe buýt (seh boo-it) - "I take the bus to work."
+50. Airplane - Máy bay (mai bai) - "I travel by airplane."
+
+=== ĐỘNG VẬT (ANIMALS) ===
+51. Dog - Con chó (kon choh) - "I have a pet dog."
+52. Cat - Con mèo (kon meh-oh) - "I have a pet cat."
+53. Bird - Con chim (kon cheem) - "The bird is singing."
+54. Fish - Con cá (kon kah) - "I like eating fish."
+55. Chicken - Con gà (kon gah) - "I eat chicken for dinner."
+
+=== KINH DOANH (BUSINESS) ===
+56. Money - Tiền (tee-en) - "I need money to buy food."
+57. Work - Làm việc (lam vee-ek) - "I work every day."
+58. Job - Công việc (kong vee-ek) - "I have a good job."
+59. Market - Chợ (choh) - "I buy food at the market."
+60. Store - Cửa hàng (koo-ah hang) - "I buy clothes at the store."
+
+=== SỨC KHỎE (HEALTH) ===
+61. Hospital - Bệnh viện (ben vee-en) - "I go to the hospital when I'm sick."
+62. Doctor - Bác sĩ (bahk see) - "The doctor is very kind."
+63. Medicine - Thuốc (too-ok) - "I take medicine when I'm sick."
+64. Sick - Bệnh (ben) - "I feel sick today."
+65. Healthy - Khỏe mạnh (kweh mang) - "I want to be healthy."
+
+=== THỜI GIAN (TIME) ===
+66. Today - Hôm nay (hom nai) - "Today is a beautiful day."
+67. Tomorrow - Ngày mai (ngai mai) - "I will see you tomorrow."
+68. Yesterday - Hôm qua (hom kwah) - "I went to school yesterday."
+69. Week - Tuần (too-en) - "I work five days a week."
+70. Month - Tháng (tang) - "I will travel next month."
+71. Year - Năm (nam) - "Happy New Year!"
+72. Morning - Buổi sáng (boo-ee sang) - "Good morning!"
+73. Afternoon - Buổi chiều (boo-ee chee-oo) - "Good afternoon!"
+74. Evening - Buổi tối (boo-ee toy) - "Good evening!"
+75. Night - Đêm (dem) - "Good night!"
+
+=== THIÊN NHIÊN (NATURE) ===
+76. Sun - Mặt trời (mat troi) - "The sun is bright today."
+77. Moon - Mặt trăng (mat trang) - "The moon is beautiful tonight."
+78. Star - Ngôi sao (ngoi sow) - "I can see many stars tonight."
+79. Rain - Mưa (moo-ah) - "It's raining today."
+80. Wind - Gió (zoh) - "The wind is strong today."
+81. Tree - Cây (kai) - "There are many trees in the park."
+82. Flower - Hoa (hwah) - "The flowers are beautiful."
+83. Mountain - Núi (noo-ee) - "I like climbing mountains."
+84. River - Sông (song) - "The river is very long."
+85. Sea - Biển (bee-en) - "I love swimming in the sea."
+
+=== ĐỊA ĐIỂM (PLACES) ===
+86. City - Thành phố (tang foh) - "I live in a big city."
+87. Village - Làng (lang) - "My grandparents live in a village."
+88. Park - Công viên (kong vee-en) - "I walk in the park every morning."
+89. Restaurant - Nhà hàng (nyah hang) - "I eat at the restaurant."
+90. Hotel - Khách sạn (kahk sahn) - "I stay at a hotel when I travel."
+91. Airport - Sân bay (san bai) - "I go to the airport to travel."
+92. Station - Ga (gah) - "I wait at the train station."
+93. Bank - Ngân hàng (ngan hang) - "I go to the bank to get money."
+94. Post office - Bưu điện (boo-ee dee-en) - "I send letters at the post office."
+95. Library - Thư viện (too vee-en) - "I study at the library."
+96. Museum - Bảo tàng (bow tang) - "I visit the museum to see art."
+97. Theater - Rạp chiếu phim (rap chee-oo feem) - "I watch movies at the theater."
+98. Beach - Bãi biển (bai bee-en) - "I swim at the beach."
+99. Bridge - Cầu (kow) - "I cross the bridge to go home."
+100. Street - Đường (doo-ung) - "I walk on the street."
+
+=== THỐNG KÊ ===
+Tổng số từ: 100 từ
+Số chủ đề: 12 chủ đề
+- Chào hỏi: 3 từ
+- Lịch sự: 3 từ  
+- Tính từ: 7 từ
+- Thức ăn & đồ uống: 8 từ
+- Số đếm: 4 từ
+- Màu sắc: 6 từ
+- Gia đình: 4 từ
+- Nhà cửa: 6 từ
+- Giáo dục: 5 từ
+- Giao thông: 4 từ
+- Động vật: 5 từ
+- Kinh doanh: 5 từ
+- Sức khỏe: 5 từ
+- Thời gian: 10 từ
+- Thiên nhiên: 10 từ
+- Địa điểm: 15 từ 
