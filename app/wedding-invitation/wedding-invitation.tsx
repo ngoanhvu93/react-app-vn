@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Dialog } from "@headlessui/react";
+import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import {
   BanknoteIcon,
   HeartIcon,
@@ -415,14 +415,14 @@ export default function WeddingInvitation() {
 
         {/* Full-screen container to center the panel */}
         <div className="fixed inset-0 flex items-center justify-center p-2">
-          <Dialog.Panel className="bg-white rounded-3xl shadow-3xl max-w-md w-full max-h-[90vh] overflow-y-auto transform transition-all duration-500 scale-100">
+          <DialogPanel className="bg-white rounded-3xl shadow-3xl max-w-md w-full max-h-[90vh] overflow-y-auto transform transition-all duration-500 scale-100">
             {/* Enhanced Dialog Header */}
             <div className="sticky top-0 bg-gradient-to-r from-red-600 to-pink-600 text-white p-4 rounded-t-3xl">
               <div className="flex justify-between items-center">
-                <Dialog.Title className="text-2xl font-bold font-serif flex items-center justify-center">
+                <DialogTitle className="text-2xl font-bold font-serif flex items-center justify-center">
                   <HeartIcon className="w-6 h-6" />
                   <span className="ml-2">Gửi Mừng Cưới</span>
-                </Dialog.Title>
+                </DialogTitle>
                 <button
                   onClick={closeDialog}
                   className="text-white hover:text-red-100 transition-colors duration-200 p-2 rounded-full hover:bg-white/20"
@@ -537,7 +537,7 @@ export default function WeddingInvitation() {
                 </div>
               </div>
             </div>
-          </Dialog.Panel>
+          </DialogPanel>
         </div>
       </Dialog>
     </div>
