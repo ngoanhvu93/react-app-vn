@@ -20,10 +20,10 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export function meta() {
   return [
-    { title: "Thiệp mời cưới - Anh Vũ & Kim Triệu" },
+    { title: "Thư mời cưới - Anh Vũ & Kim Triệu" },
     {
       name: "description",
-      content: "Thiệp mời cưới của Anh Vũ & Kim Triệu - Thứ Bảy, 23/08/2025",
+      content: "Thư mời cưới của Anh Vũ & Kim Triệu - Thứ Bảy, 23/08/2025",
     },
     {
       name: "og:image",
@@ -122,7 +122,7 @@ export default function WeddingInvitation() {
         />
 
         {/* Hero Image with enhanced styling and animation */}
-        <div className="w-62 h-96 mx-auto overflow-hidden rounded-t-full mt-2 shadow-2xl z-10">
+        <div className="w-64 h-96 mx-auto overflow-hidden rounded-t-full mt-2 shadow-2xl z-10">
           <img
             src="https://deewedding.com/wp-content/uploads/2023/10/372763945_844636273716650_9026782117946223657_n-682x1024.jpg.webp"
             width={500}
