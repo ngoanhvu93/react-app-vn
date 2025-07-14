@@ -16,7 +16,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 import imageBackground from "../../public/image.png";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { lazy } from "react";
+const Loading = lazy(() => import("./components/Loading"));
 
 export function meta() {
   return [
@@ -63,15 +64,7 @@ export default function WeddingInvitation() {
   };
 
   if (isLoading) {
-    return (
-      <div className="bg-gradient-to-br absolute top-1/2 -translate-y-1/2  left-1/2 -translate-x-1/2 w-full h-screen from-red-50 via-pink-50 to-rose-100 overflow-hidden flex items-center justify-center pb-28">
-        <DotLottieReact
-          src="https://lottie.host/a9035f38-a11a-4ea6-a5b2-6ccab0bf3d71/jLGLmOtYkz.lottie"
-          loop
-          autoplay
-        />
-      </div>
-    );
+    return <Loading />;
   }
 
   const AccountNumberDisplay = ({
