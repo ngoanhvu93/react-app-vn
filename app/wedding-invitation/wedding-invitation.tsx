@@ -343,7 +343,7 @@ export default function WeddingInvitation() {
         {/* Venue Section with enhanced styling */}
         <div className="text-center w-full mt-4">
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl space-y-4">
-            <div className="text-2xl font-bold text-red-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text pt-4">
+            <div className="text-2xl font-bold text-gray-700 font-serif tracking-wide bg-gradient-to-r from-red-700 to-pink-700 bg-clip-text pt-4">
               Địa điểm tổ chức
             </div>
             <div className="text-2xl font-bold text-gray-700 font-serif tracking-wide">
