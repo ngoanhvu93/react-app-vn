@@ -18,6 +18,7 @@ import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 import imageBackground from "../../public/image.png";
 import Loading from "./components/Loading";
 import { motion } from "framer-motion";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export function meta() {
   return [
@@ -390,14 +391,23 @@ export default function WeddingInvitation() {
         <div className="h-[2px] w-40 bg-gradient-to-r from-transparent via-red-600 to-transparent my-10 rounded-full shadow-lg" />
 
         {/* Enhanced Gửi Mừng Cưới Button */}
-
-        <button
-          onClick={openDialog}
-          className="text-center w-full text-red-600 font-serif tracking-wide bg-white/95 backdrop-blur-md rounded-full p-4 shadow-2xl border border-red-400 hover:border-red-500 text-lg font-bold"
-        >
-          💝 Gửi Mừng Cưới 💝
-        </button>
+        <div className="relative h-full w-full flex items-center justify-center">
+          {" "}
+          <button
+            onClick={openDialog}
+            className="text-center cursor-pointer z-50 w-full text-red-600 font-serif tracking-wide bg-white/95 backdrop-blur-md rounded-full p-4 shadow-2xl border border-red-400 hover:border-red-500 text-lg font-bold"
+          >
+            💝 Gửi Mừng Cưới 💝
+          </button>
+        </div>
       </div>
+      <DotLottieReact
+        onClick={openDialog}
+        src="https://lottie.host/e36f6c65-6b58-4da6-90ca-8e8564fda864/WM1f1JAa9l.lottie"
+        loop
+        autoplay
+        className="absolute cursor-pointer bottom-0 left-0  z-50 h-40 w-full"
+      />
 
       {/* Enhanced Dialog for QR Code and Bank Information */}
       <Dialog
