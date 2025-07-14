@@ -257,36 +257,31 @@ export default function WeddingInvitation() {
               spaceBetween={10}
               freeMode
               pagination={{ clickable: true, dynamicBullets: true }}
-              // autoplay={{ delay: 2000, disableOnInteraction: false }}
+              autoplay={{ delay: 2000, disableOnInteraction: false }}
             >
               {[
                 {
-                  src: "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-1.jpg",
-                  alt: "Ảnh 1",
-                  bg: "from-red-100 to-pink-100",
-                  text: "text-red-700",
-                },
-                {
-                  src: "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-2.jpg",
-                  alt: "Ảnh 2",
+                  src: "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-6.jpg",
+                  alt: "Ảnh 6",
                   bg: "from-pink-100 to-rose-100",
                   text: "text-pink-700",
                 },
                 {
-                  src: "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-3.jpg",
-                  alt: "Ảnh 3",
-                  bg: "from-rose-100 to-red-100",
-                  text: "text-rose-700",
+                  src: "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-7.jpg",
+                  alt: "Ảnh 7",
+                  bg: "from-pink-100 to-rose-100",
+                  text: "text-pink-700",
                 },
                 {
-                  src: "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-4.jpg",
-                  alt: "Ảnh 4",
-                  bg: "from-red-100 to-pink-100",
-                  text: "text-red-700",
+                  src: "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-8.jpg",
+                  alt: "Ảnh 8",
+                  bg: "from-pink-100 to-rose-100",
+                  text: "text-pink-700",
                 },
+
                 {
-                  src: "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-5.jpg",
-                  alt: "Ảnh 5",
+                  src: "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-10.jpg",
+                  alt: "Ảnh 10",
                   bg: "from-pink-100 to-rose-100",
                   text: "text-pink-700",
                 },
@@ -308,40 +303,16 @@ export default function WeddingInvitation() {
                   bg: "from-pink-100 to-rose-100",
                   text: "text-pink-700",
                 },
-                {
-                  src: "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-9.jpg",
-                  alt: "Ảnh 9",
-                  bg: "from-pink-100 to-rose-100",
-                  text: "text-pink-700",
-                },
+
                 {
                   src: "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-10.jpg",
                   alt: "Ảnh 10",
                   bg: "from-pink-100 to-rose-100",
                   text: "text-pink-700",
                 },
-                {
-                  src: "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-11.jpg",
-                  alt: "Ảnh 11",
-                  bg: "from-pink-100 to-rose-100",
-                  text: "text-pink-700",
-                },
-                {
-                  src: "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-12.jpg",
-                  alt: "Ảnh 12",
-                  bg: "from-pink-100 to-rose-100",
-                  text: "text-pink-700",
-                },
               ].map((img, i) => (
-                <SwiperSlide
-                  key={i}
-                  className="flex items-center justify-cente"
-                >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className={`w-full h-48 bg-gradient-to-br ${img.bg}  flex items-center justify-center ${img.text} font-bold text-xl`}
-                  />
+                <SwiperSlide key={i}>
+                  <img src={img.src} alt={img.alt} />
                 </SwiperSlide>
               ))}
             </Swiper>
