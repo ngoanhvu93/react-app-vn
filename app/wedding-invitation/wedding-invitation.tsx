@@ -17,6 +17,7 @@ import "swiper/css/navigation";
 import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 import imageBackground from "../../public/image.png";
 import Loading from "./components/Loading";
+import { motion } from "framer-motion";
 
 export function meta() {
   return [
@@ -103,7 +104,12 @@ export default function WeddingInvitation() {
   };
 
   return (
-    <div className="relative bg-gradient-to-br from-red-50 via-pink-50 to-rose-100 overflow-hidden max-w-md mx-auto pb-8">
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="relative bg-gradient-to-br from-red-50 via-pink-50 to-rose-100 overflow-hidden max-w-md mx-auto pb-8"
+    >
       <div
         className={`relative z-10 flex flex-col items-center justify-center mx-auto w-full pt-10 px-4`}
       >
@@ -533,6 +539,6 @@ export default function WeddingInvitation() {
           </DialogPanel>
         </div>
       </Dialog>
-    </div>
+    </motion.div>
   );
 }
