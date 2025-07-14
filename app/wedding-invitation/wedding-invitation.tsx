@@ -100,7 +100,7 @@ export default function WeddingInvitation() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen bg-gradient-to-br from-red-50 via-pink-50 to-rose-100">
+      <div className="bg-gradient-to-br h-screen w-full from-red-50 via-pink-50 to-rose-100 overflow-hidden flex items-center justify-center pb-28">
         <DotLottieReact
           src="https://lottie.host/a9035f38-a11a-4ea6-a5b2-6ccab0bf3d71/jLGLmOtYkz.lottie"
           loop
