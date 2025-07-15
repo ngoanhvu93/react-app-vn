@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import {
   BanknoteIcon,
   HeartIcon,
@@ -23,10 +23,10 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export function meta() {
   return [
-    { title: "Thư mời cưới - Anh Vũ & Kim Triệu" },
+    { title: "Thư mời cưới - Đức Phú & Hồng Loan" },
     {
       name: "description",
-      content: "Thư mời cưới của Anh Vũ & Kim Triệu - Thứ Bảy, 23/08/2025",
+      content: "Thư mời cưới của Đức Phú & Hồng Loan - Thứ Bảy, 23/08/2025",
     },
     {
       name: "og:image",
@@ -69,10 +69,10 @@ export default function WeddingInvitation() {
   const addToCalendar = () => {
     // Create ICS file content
     const event = {
-      summary: "Đám cưới Anh Vũ & Kim Triệu",
+      summary: "Đám cưới Đức Phú & Hồng Loan",
       description:
-        "Tham dự lễ cưới Anh Vũ & Kim Triệu\n\nĐịa điểm: Nhà Hàng Cây Nhãn\nĐịa chỉ: 77 Huỳnh Tấn Phát, P.Mũi Né, Tỉnh Lâm Đồng\n\nThông tin liên hệ:\n- Chú rễ: Anh Vũ\n- Cô dâu: Kim Triệu",
-      location: "Nhà Hàng Cây Nhãn, 77 Huỳnh Tấn Phát, P.Mũi Né, Tỉnh Lâm Đồng",
+        "Tham dự lễ cưới Đức Phú & Hồng Loan\n\nĐịa điểm: Nhà Hàng Cây Nhãn\nĐịa chỉ: 77 Huỳnh Tấn Phát, P.Mũi Né, Tỉnh Lâm Đồng\n\nThông tin liên hệ:\n- Chú rễ: Đức Phú\n- Cô dâu: Hồng Loan",
+      location: "Nhà Hàng Cây Nhãn, 18 Hồ Xuân Hương, P.Kon Tum, Tỉnh Gia Lai",
       startDate: "20250823T110000",
       endDate: "20250823T140000", // 3 hours duration
     };
@@ -103,7 +103,7 @@ export default function WeddingInvitation() {
     });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "dam-cuoi-anh-vu-kim-trieu.ics";
+    link.download = "dam-cuoi-duc-phu-hong-loan.ics";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -188,7 +188,7 @@ export default function WeddingInvitation() {
             THƯ MỜI CƯỚI
           </div>
           <div className="text-3xl font-bold text-gray-700 font-serif italic bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text  ">
-            Anh Vũ & Kim Triệu
+            Đức Phú & Hồng Loan
           </div>
         </div>
 
@@ -232,7 +232,7 @@ export default function WeddingInvitation() {
               </div>
             </div>
             <div className="text-xs text-gray-700 font-serif italic mt-3">
-              🏠 18 Hồ Xuân Hương, P.Mũi Né, Tỉnh Lâm Đồng
+              🏠 18 Hồ Xuân Hương, P.Kon Tum, Tỉnh Gia Lai
             </div>
           </div>
           <div className="relative flex flex-col items-center mt-6">
@@ -244,7 +244,7 @@ export default function WeddingInvitation() {
               />
             </div>
             <div className="w-full text-white text-center font-serif font-bold text-lg drop-shadow-lg bg-gradient-to-r from-gray-600 to-gray-700 px-4 py-3 rounded-b-3xl">
-              👨‍💼 Chú rễ Anh Vũ
+              👨‍💼 Chú rễ Đức Phú
             </div>
           </div>
         </div>
@@ -259,15 +259,11 @@ export default function WeddingInvitation() {
               <div className="text-xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
                 Nhà Gái
               </div>
-              <div className="font-semibold text-gray-800">
-                Ông Đặng Văn Đức
-              </div>
-              <div className="font-semibold text-gray-800">
-                Bà Huỳnh Bạch Mai
-              </div>
+              <div className="font-semibold text-gray-800">Ông Trần Văn A</div>
+              <div className="font-semibold text-gray-800">Bà Nguyễn Thị B</div>
             </div>
             <div className="text-xs text-gray-700 font-serif italic mt-3">
-              🏠 Đồng Tháp, Tỉnh Đồng Tháp
+              🏠 18 Hồ Xuân Hương, P.Ninh Thuận, Tỉnh Khánh Hoà
             </div>
           </div>
           <div className="relative flex flex-col items-center mt-6">
@@ -279,7 +275,7 @@ export default function WeddingInvitation() {
               />
             </div>
             <div className="w-full text-white font-serif text-center font-cormorant font-bold text-lg drop-shadow-lg bg-gradient-to-r from-gray-600 to-gray-700 px-4 py-3 rounded-b-3xl">
-              👰‍♀️ Cô dâu Kim Triệu
+              👰‍♀️ Cô dâu Hồng Loan
             </div>
           </div>
         </div>
@@ -294,7 +290,7 @@ export default function WeddingInvitation() {
               Thư Mời
             </div>
             <div className="font-semibold text-gray-700 font-serif tracking-wide">
-              Tham dự lễ cưới Anh Vũ & Kim Triệu
+              Tham dự lễ cưới Đức Phú & Hồng Loan
             </div>
           </div>
 
@@ -564,7 +560,7 @@ export default function WeddingInvitation() {
                           Tên TK:
                         </span>
                         <span className="text-red-700 font-bold">
-                          NGÔ ANH VŨ
+                          TRẦN ĐỨC PHÚ
                         </span>
                       </div>
                       <AccountNumberDisplay
@@ -599,7 +595,7 @@ export default function WeddingInvitation() {
                           Tên TK:
                         </span>
                         <span className="text-pink-700 font-bold">
-                          ĐẶNG KIM TRIỆU
+                          NGUYỄN THỊ HỒNG LOAN
                         </span>
                       </div>
                       <AccountNumberDisplay
