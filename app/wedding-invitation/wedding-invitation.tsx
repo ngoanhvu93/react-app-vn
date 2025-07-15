@@ -7,8 +7,6 @@ import {
   XIcon,
   CopyIcon,
   CheckIcon,
-  MapPinIcon,
-  CalendarIcon,
 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -40,7 +38,6 @@ export default function WeddingInvitation() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [copiedAccount, setCopiedAccount] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [calendarAdded, setCalendarAdded] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -107,12 +104,6 @@ export default function WeddingInvitation() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
-    // Show success message
-    setCalendarAdded(true);
-    setTimeout(() => {
-      setCalendarAdded(false);
-    }, 3000);
   };
 
   if (isLoading) {
@@ -421,24 +412,18 @@ export default function WeddingInvitation() {
                     const googleMapsUrl = `https://maps.app.goo.gl/Gei23kA6hMZsp6jc7`;
                     window.open(googleMapsUrl, "_blank");
                   }}
-                  className="flex w-full justify-center items-center gap-2 text-gray-600 font-semibold py-2 px-4 rounded-full shadow-lg border"
+                  className="flex w-full cursor-pointer justify-center items-center gap-2 text-gray-600 py-2 px-4 rounded-full shadow-lg border"
                 >
-                  <MapPinIcon className="w-5 h-5" />
-                  <span>Google Maps</span>
+                  <span>Mở Google Maps</span>
                 </button>
               </div>
               {/* Calendar Button */}
-              <div className="w-full flex justify-center">
+              <div className="w-full flex justify-center ">
                 <button
                   onClick={addToCalendar}
-                  className="flex items-center justify-center gap-2 text-gray-600 font-semibold py-2 px-4 rounded-full shadow-lg border w-full"
+                  className="flex items-center cursor-pointer justify-center gap-2 text-gray-600 text-shadow-sx py-2 px-4 rounded-full shadow-lg border w-full"
                 >
-                  {calendarAdded ? (
-                    <CheckIcon className="w-5 h-5 animate-pulse" />
-                  ) : (
-                    <CalendarIcon className="w-5 h-5" />
-                  )}
-                  <span>{calendarAdded ? "Đã thêm!" : "Thêm vào lịch"}</span>
+                  <span>Thêm vào lịch</span>
                 </button>
               </div>
             </div>
