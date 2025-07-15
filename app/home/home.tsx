@@ -76,7 +76,7 @@ const resources = [
     icon: <PlusIcon className="w-6 h-6 text-red-600" />,
   },
   {
-    href: "/thiep-cuoi/anh-vu-kim-trieu-1234567890",
+    href: "/thiep-cuoi/ducphuc-hongloan",
     text: "Xem Thiệp Mẫu",
     description: "Xem ví dụ thiệp cưới đã tạo",
     icon: <EyeIcon className="w-6 h-6 text-blue-600" />,
