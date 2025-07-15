@@ -1,7 +1,7 @@
 import { HeartIcon, PlusIcon, EyeIcon } from "lucide-react";
 import { useNavigate } from "react-router";
 import { AppHeader } from "~/_components/AppHeader";
-import { AppTabBar } from "~/_components/AppTabBar";
+import AppTabBar from "~/_components/AppTabBar";
 
 const ogImage =
   "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-1.jpg";

@@ -11,7 +11,7 @@ interface TabItem {
   path: string;
 }
 
-export const AppTabBar = () => {
+const AppTabBar = () => {
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -99,3 +99,5 @@ export const AppTabBar = () => {
     </div>
   );
 };
+
+export default AppTabBar;
