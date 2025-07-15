@@ -18,6 +18,7 @@ import imageBackground from "../../public/image.png";
 import Loading from "./components/Loading";
 import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { toast } from "react-toastify";
 
 export function meta() {
   return [
@@ -58,6 +59,14 @@ export default function WeddingInvitation() {
       setTimeout(() => {
         setCopiedAccount(null);
       }, 2000);
+      toast.success("Đã copy thành công!", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "light",
+      });
     } catch (err) {
       console.error("Failed to copy: ", err);
     }
@@ -390,7 +399,15 @@ export default function WeddingInvitation() {
             <div className="text-2xl font-bold text-gray-700 font-serif tracking-wide">
               Nhà Hàng Cây Nhãn
             </div>
-            <div className="font-semibold text-gray-700  text-sm tracking-wide mb-4">
+            <div
+              onClick={() =>
+                copyToClipboard(
+                  "77 Huỳnh Tấn Phát, P.Mũi Né, Tỉnh Lâm Đồng",
+                  "address"
+                )
+              }
+              className="font-semibold text-gray-700 text-sm tracking-wide mb-4 cursor-pointer"
+            >
               📍 77 Huỳnh Tấn Phát, P.Mũi Né, Tỉnh Lâm Đồng
             </div>
             <div className="flex justify-center mt-4">
@@ -435,7 +452,6 @@ export default function WeddingInvitation() {
 
         {/* Enhanced Gửi Mừng Cưới Button */}
         <div className="relative h-full w-full flex items-center justify-center">
-          {" "}
           <button
             onClick={openDialog}
             className="text-center cursor-pointer z-50 w-full text-red-600 font-serif tracking-wide bg-white/95 backdrop-blur-md rounded-full p-4 shadow-2xl border border-red-400 hover:border-red-500 text-lg font-bold"

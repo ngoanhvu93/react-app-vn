@@ -1,6 +1,8 @@
-import logoDark from "./logo-dark.svg";
-import logoLight from "./logo-light.svg";
 import { HeartIcon, PlusIcon, EyeIcon } from "lucide-react";
+import { useNavigate } from "react-router";
+
+const ogImage =
+  "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-1.jpg";
 
 export function meta() {
   return [
@@ -11,13 +13,13 @@ export function meta() {
     },
     {
       name: "og:image",
-      content:
-        "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-1.jpg",
+      content: ogImage,
     },
   ];
 }
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <main className="min-h-screen bg-gradient-to-br from-red-50 via-pink-50 to-rose-100">
       <div className="flex items-center justify-center pt-16 pb-4">
@@ -45,9 +47,9 @@ export default function Home() {
               <ul className="space-y-3">
                 {resources.map(({ href, text, icon, description }) => (
                   <li key={href}>
-                    <a
-                      className="group flex items-center gap-3 self-stretch p-4 leading-normal text-gray-700 hover:text-red-600 rounded-xl border border-gray-200 hover:border-red-300 hover:bg-red-50 transition-all duration-200"
-                      href={href}
+                    <div
+                      className="group cursor-pointer flex items-center gap-3 self-stretch p-4 leading-normal text-gray-700 hover:text-red-600 rounded-xl border border-gray-200 hover:border-red-300 hover:bg-red-50 transition-all duration-200"
+                      onClick={() => navigate(href)}
                     >
                       <div className="flex-shrink-0">{icon}</div>
                       <div className="flex-1">
@@ -56,7 +58,7 @@ export default function Home() {
                           {description}
                         </div>
                       </div>
-                    </a>
+                    </div>
                   </li>
                 ))}
               </ul>
