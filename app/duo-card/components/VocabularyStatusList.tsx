@@ -8,7 +8,6 @@ import {
   Trash2,
   Target,
   TrendingUp,
-  Zap,
   Calendar,
   Info,
 } from "lucide-react";

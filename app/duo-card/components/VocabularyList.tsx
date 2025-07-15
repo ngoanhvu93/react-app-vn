@@ -4,7 +4,6 @@ import {
   Edit,
   Trash2,
   Search,
-  Filter,
   SortAsc,
   SortDesc,
   BookOpen,

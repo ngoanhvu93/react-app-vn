@@ -561,7 +561,7 @@ const AppleWeather: React.FC = () => {
       {/* Search Modal */}
       <Dialog open={showSearch} onClose={() => setShowSearch(false)}>
         {showSearch && (
-          <motion.div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md p-4 flex flex-col ">
+          <motion.div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md p-4 flex flex-col w-full mx-auto">
             <div className="flex items-center gap-3 mb-6">
               <button
                 title="Close"

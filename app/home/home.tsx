@@ -1,5 +1,7 @@
 import { HeartIcon, PlusIcon, EyeIcon } from "lucide-react";
 import { useNavigate } from "react-router";
+import { AppHeader } from "~/_components/AppHeader";
+import { AppTabBar } from "~/_components/AppTabBar";
 
 const ogImage =
   "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-1.jpg";
@@ -21,9 +23,10 @@ export function meta() {
 export default function Home() {
   const navigate = useNavigate();
   return (
-    <main className="min-h-screen bg-gradient-to-br from-red-50 via-pink-50 to-rose-100">
-      <div className="flex items-center justify-center pt-16 pb-4">
-        <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
+    <div className="w-full flex flex-col mx-auto max-w-4xl h-screen overflow-hidden">
+      <AppHeader onBack={() => navigate("/")} title="Ứng dụng" />
+      <div className="grow items-center p-4 w-full mx-auto bg-gray-50 overflow-y-auto">
+        <div className="flex-1 flex flex-col items-center gap-16">
           <header className="flex flex-col items-center gap-9">
             <div className="text-center space-y-4">
               <div className="flex items-center justify-center mb-6">
@@ -66,7 +69,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </main>
+      <AppTabBar />
+    </div>
   );
 }
 
