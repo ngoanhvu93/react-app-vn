@@ -224,12 +224,8 @@ export default function WeddingInvitation() {
               <div className="text-xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
                 Nhà Trai
               </div>
-              <div className="font-semibold text-gray-800">
-                Ông Ngô Văn Tuấn
-              </div>
-              <div className="font-semibold text-gray-800">
-                Bà Nguyễn Thị Bích Phượng
-              </div>
+              <div className="font-semibold text-gray-800">Ông Trần Văn A</div>
+              <div className="font-semibold text-gray-800">Bà Nguyễn Thị B</div>
             </div>
             <div className="text-xs text-gray-700 font-serif italic mt-3">
               🏠 18 Hồ Xuân Hương, P.Kon Tum, Tỉnh Gia Lai
