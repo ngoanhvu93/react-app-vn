@@ -70,7 +70,7 @@ export default function Home() {
 
 const resources = [
   {
-    href: "/tao-thiep-cuoi",
+    href: "/thiep-cuoi/ducphuc-hongloan",
     text: "Tạo Thiệp Cưới Mới",
     description: "Tạo thiệp cưới với thông tin tùy chỉnh",
     icon: <PlusIcon className="w-6 h-6 text-red-600" />,
