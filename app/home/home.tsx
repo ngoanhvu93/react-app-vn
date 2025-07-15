@@ -1,6 +1,6 @@
 import { HeartIcon, PlusIcon, EyeIcon } from "lucide-react";
 import { useNavigate } from "react-router";
-import { AppHeader } from "~/_components/AppHeader";
+import AppHeader from "~/_components/AppHeader";
 import AppTabBar from "~/_components/AppTabBar";
 
 const ogImage =
@@ -23,10 +23,10 @@ export function meta() {
 export default function Home() {
   const navigate = useNavigate();
   return (
-    <div className="w-full flex flex-col mx-auto max-w-4xl h-screen overflow-hidden">
+    <div className="w-full flex flex-col mx-auto max-w-4xl">
       <AppHeader onBack={() => navigate("/")} title="Ứng dụng" />
-      <div className="grow items-center p-4 w-full mx-auto bg-gray-50 overflow-y-auto">
-        <div className="flex-1 flex flex-col items-center gap-16">
+      <div className="flex flex-col items-center p-4 w-full mx-auto bg-gray-50 h-[calc(100vh-134px)] overflow-y-auto">
+        <div className="flex flex-col items-center gap-4">
           <header className="flex flex-col items-center gap-9">
             <div className="text-center space-y-4">
               <div className="flex items-center justify-center mb-6">
