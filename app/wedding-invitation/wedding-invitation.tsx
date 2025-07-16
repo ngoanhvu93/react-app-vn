@@ -7,6 +7,7 @@ import {
   XIcon,
   CopyIcon,
   CheckIcon,
+  CalendarIcon,
 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -440,6 +441,7 @@ export default function WeddingInvitation() {
                   onClick={addToCalendar}
                   className="flex items-center cursor-pointer justify-center gap-2 text-gray-600 text-shadow-sx py-2 px-4 rounded-full shadow-lg border w-full"
                 >
+                  <CalendarIcon size={16} />
                   <span>Thêm vào lịch</span>
                 </button>
               </div>

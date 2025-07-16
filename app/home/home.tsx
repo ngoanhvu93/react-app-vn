@@ -1,90 +1,85 @@
-import { HeartIcon, PlusIcon, EyeIcon } from "lucide-react";
-import { useNavigate } from "react-router";
 import AppHeader from "~/_components/AppHeader";
 import AppTabBar from "~/_components/AppTabBar";
+import { useState, useEffect } from "react";
+import { ArrowDownIcon } from "lucide-react";
 
-const ogImage =
-  "https://calibridal.com.vn/wp-content/uploads/2021/05/hinh-cong-dam-cuoi-1.jpg";
+const Home = () => {
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
-export function meta() {
-  return [
-    { title: "Wedding Invitation Creator" },
-    {
-      name: "description",
-      content: "Tạo thiệp cưới đẹp và lưu trữ trên Firebase",
-    },
-    {
-      name: "og:image",
-      content: ogImage,
-    },
-  ];
-}
+  const scrollToBottom = () => {
+    const scrollContainer = document.querySelector(".overflow-y-auto");
+    if (scrollContainer) {
+      scrollContainer.scrollTo({
+        top: scrollContainer.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  };
 
-export default function Home() {
-  const navigate = useNavigate();
+  useEffect(() => {
+    const scrollContainer = document.querySelector(".overflow-y-auto");
+    if (scrollContainer) {
+      const handleScroll = () => {
+        const { scrollTop, scrollHeight, clientHeight } = scrollContainer;
+        const isNearBottom = scrollTop + clientHeight >= scrollHeight - 100;
+        setShowScrollButton(!isNearBottom);
+      };
+
+      scrollContainer.addEventListener("scroll", handleScroll);
+      handleScroll(); // Check initial state
+
+      return () => scrollContainer.removeEventListener("scroll", handleScroll);
+    }
+  }, []);
+
   return (
-    <div className="w-full flex flex-col mx-auto max-w-4xl">
-      <AppHeader onBack={() => navigate("/")} title="Ứng dụng" />
-      <div className="flex flex-col items-center p-4 w-full mx-auto bg-gray-50 h-[calc(100vh-134px)] overflow-y-auto">
-        <div className="flex flex-col items-center gap-4">
-          <header className="flex flex-col items-center gap-9">
-            <div className="text-center space-y-4">
-              <div className="flex items-center justify-center mb-6">
-                <HeartIcon className="w-16 h-16 text-red-600" />
-              </div>
-              <h1 className="text-4xl font-bold text-red-700 font-serif">
-                Wedding Invitation Creator
-              </h1>
-              <p className="text-xl text-gray-600 max-w-2xl">
-                Tạo thiệp cưới đẹp và lưu trữ trên Firebase. Chia sẻ thiệp cưới
-                của bạn với bạn bè và gia đình.
-              </p>
-            </div>
-          </header>
-
-          <div className="max-w-[400px] w-full space-y-6 px-4">
-            <nav className="rounded-3xl border border-gray-200 p-6 bg-white/80 backdrop-blur-sm shadow-xl space-y-4">
-              <p className="leading-6 text-gray-700 text-center font-semibold text-lg">
-                Bắt đầu tạo thiệp cưới
-              </p>
-              <ul className="space-y-3">
-                {resources.map(({ href, text, icon, description }) => (
-                  <li key={href}>
-                    <div
-                      className="group cursor-pointer flex items-center gap-3 self-stretch p-4 leading-normal text-gray-700 hover:text-red-600 rounded-xl border border-gray-200 hover:border-red-300 hover:bg-red-50 transition-all duration-200"
-                      onClick={() => navigate(href)}
-                    >
-                      <div className="flex-shrink-0">{icon}</div>
-                      <div className="flex-1">
-                        <div className="font-semibold">{text}</div>
-                        <div className="text-sm text-gray-500">
-                          {description}
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
-        </div>
+    <div className="w-full flex flex-col mx-auto min-h-screen overflow-hidden max-w-4xl">
+      <div className="flex-none">
+        <AppHeader title="Ứng dụng" />
       </div>
-      <AppTabBar />
+
+      <div className="flex-grow h-[calc(100vh-300px)] overflow-y-auto relative">
+        <p className="text-2xl font-bold text-center h-[2000px] text-red-100 bg-amber-500 p-4">
+          AI Gemini trong Gmail có thể vô tình tóm tắt nội dung email lừa đảo?
+          Vào ngày 15/7/2025, "blurrylogic" - một nhà nghiên cứu an ninh mạng đã
+          chứng minh AI Gemini trong Gmail có thể bị thao túng để hiển thị phần
+          tóm tắt nội dung từ email lừa đảo. Lỗ hổng này được gửi tới 0din,
+          chương trình tiền thưởng tìm lỗi của Mozilla Foundation dành cho các
+          ứng dụng AI. Cụ thể hơn, các câu lệnh lừa đảo có thể được chèn vào nội
+          dung email dưới định dạng HTML (hoặc dưới dạng văn bản được ẩn bằng
+          màu phông chữ vô hình). Gemini sẽ hiểu các câu lệnh này là mệnh lệnh
+          và có thể hiển thị chúng trong bản tóm tắt email mà không hề đưa ra
+          cảnh báo cho người dùng. Do câu lệnh lừa đảo được ẩn trong phần nội
+          dung của email gốc nên người dùng sẽ khó phát hiện ra. Vì vậy, người
+          dùng có khả năng tin rằng đó là cảnh báo do Gemini tạo ra. Nhà nghiên
+          cứu blurrylogic chỉ ra Gemini trong Gmail có thể bị khai thác để hiển
+          thị các tin nhắn buộc người nhận chia sẻ thông tin nhạy cảm mà không
+          xác minh đúng cách, dẫn đến việc thông tin đăng nhập của họ có thể bị
+          đánh cắp. Sau khi nghiên cứu trên được chia sẻ, Google đã chia sẻ chi
+          tiết về các bước họ đã thực hiện để giúp AI Gemini cảnh giác hơn trước
+          những chiêu trò như vậy. Chẳng hạn như: - Liên tục cập nhật kho dữ
+          liệu về các lời nhắc hoặc chỉ dẫn độc hại có thể thao túng đầu ra của
+          Gemini. - Huấn luyện liên tục các mô hình học máy cơ bản để đảm bảo AI
+          không phản hồi các chỉ dẫn độc hại. - Gemini sẽ nhận diện các liên kết
+          đáng ngờ (hoặc giả mạo thành những liên kết hữu ích) trong nội dung
+          email và xóa khỏi các bản tóm tắt email.{" "}
+        </p>
+
+        {showScrollButton && (
+          <button
+            onClick={scrollToBottom}
+            className="fixed bottom-20 right-4 z-50 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110"
+            aria-label="Cuộn xuống cuối trang"
+          >
+            <ArrowDownIcon className="w-6 h-6" />
+          </button>
+        )}
+      </div>
+      <div className="flex-none">
+        <AppTabBar />
+      </div>
     </div>
   );
-}
+};
 
-const resources = [
-  {
-    href: "/thiep-cuoi/ducphuc-hongloan",
-    text: "Tạo Thiệp Cưới Mới",
-    description: "Tạo thiệp cưới với thông tin tùy chỉnh",
-    icon: <PlusIcon className="w-6 h-6 text-red-600" />,
-  },
-  {
-    href: "/thiep-cuoi/ducphuc-hongloan",
-    text: "Xem Thiệp Mẫu",
-    description: "Xem ví dụ thiệp cưới đã tạo",
-    icon: <EyeIcon className="w-6 h-6 text-blue-600" />,
-  },
-];
+export default Home;
